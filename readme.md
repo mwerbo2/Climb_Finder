@@ -61,7 +61,7 @@ Render route
 ![](http://i.imgur.com/Ce8cdml.png)
 
 Image of route
-![](/Users/michaelwerbowsky/Desktop/rock_wall.jpg)
+![](http://i.imgur.com/5qxkPg8.jpg)
 
 Climber page / Stats
 ![](http://i.imgur.com/r38qhGx.png)
@@ -80,9 +80,4 @@ Climber page / Stats
 - When a user selects a route, Led's illumniate to show the route they are taking
 - To simulate the climber grabbing a hold, user will push the push button, changing the color of the led and logging it 
 - This data will then render back on the users climb page 
-
-
-
-
-
 
