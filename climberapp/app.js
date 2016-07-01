@@ -21,12 +21,8 @@ app.use(logger('dev'));
 app.use('/', homeRoute)
 // app.use('/signUp', signUpRoute)
 // req.use('/climbs', )
-//signup route
 
 
-// app.get('/maps', function(req,res){
-//   res.render('maps')
-// })
 app.listen(port, function(){
   console.log('Server running on port: ', port)
 })

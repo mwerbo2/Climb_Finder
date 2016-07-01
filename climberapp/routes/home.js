@@ -7,9 +7,10 @@ router.get('/', function(req, res){
   res.render('home')
 })
 
+
 router.get('/all', function(req, res){
   res.json(routesData)
 })
-// console.log(routesData)
+
 
 module.exports = router;

@@ -4,10 +4,12 @@ const dbConnection = ('mongodb://localhost:27017/climber')
 
 
 module.exports = {
-  const filterObj = {};
-
-
-  //filter function
+  searchRoutes = function(req,res,next){
+    const filterObj = {};
+    if('location' in req.query){
+      filterObj['location'] = new RegExp('^' + req.query.location, 'i')
+    }
+  }
 
   MongoClient.connect(dbConnection, function(err,db){
     if(err) throw err;

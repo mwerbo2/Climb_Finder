@@ -17,7 +17,7 @@ ul.topnav li {
 
 ul.topnav li a {
   display: inline-block;
-  padding-left: 600px;
+  padding-left: 600 auto;
   padding-right: 5px;
 }
 .searc {
