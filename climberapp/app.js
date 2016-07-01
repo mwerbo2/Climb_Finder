@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000
 // const routeData = require('routesData');
 
-const homeRoute = require('./routes/routeRouter')
+const homeRoute = require('./routes/home')
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
