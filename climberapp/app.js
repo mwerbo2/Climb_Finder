@@ -5,6 +5,9 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000
+// const routeData = require('routesData');
+
+const homeRoute = require('./routes/routeRouter')
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -15,9 +18,10 @@ app.use(logger('dev'));
 // app.use(bodyParser.json());
 
 
-app.get('/', function(req, res){
-  res.render('home');
-})
+app.use('/', homeRoute)
+app.use('/all', homeRoute)
+//signup route
+
 
 app.get('/maps', function(req,res){
   res.render('maps')
