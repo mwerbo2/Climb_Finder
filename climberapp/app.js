@@ -24,9 +24,9 @@ app.use('/', homeRoute)
 //signup route
 
 
-app.get('/maps', function(req,res){
-  res.render('maps')
-})
+// app.get('/maps', function(req,res){
+//   res.render('maps')
+// })
 app.listen(port, function(){
   console.log('Server running on port: ', port)
 })

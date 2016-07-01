@@ -1,3 +1,28 @@
 h1 {
   text-align: center;
 }
+
+h3 {
+  text-align: center;
+}
+
+.topnav {
+  list-style-type: none;
+  display: inline-block;
+}
+
+ul.topnav li {
+  float: left;
+}
+
+ul.topnav li a {
+  display: inline-block;
+  padding-left: 600px;
+  padding-right: 5px;
+}
+.searc {
+  height: 10vh;
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+}

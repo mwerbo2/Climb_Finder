@@ -10,27 +10,25 @@
   <script></script>
 </head>
 <body>
-<h1>Climber Finder</h1>
-  <form action="/user/new" method="post">
-    <label for="">First Name:</label>
-    <input type="text" name="fname"><br>
-    <label for="">Last Name:</label>
-    <input type="text" name="lname"><br>
-    <label for="">Location:</label>
-    <input type="text" name="location"><br>
-    <label for="">Email:</label>
-    <input type="text" name="email"><br>
-    <label for="">Password:</label>
-    <input type="password" name="password"><br>
-    <label for="">Comfortable Climbing Grade:</label>
-    <input type="text" name="grade"><br>
-    <label for="">Type of Climbing:</label>
-    <input type="text" name="type"><br>
-    <input type="Submit" value="Create New User">
-    <div class="results">
 
-    </div>
-  </form>
+<ul class="topnav">
+  <li><a href="#">Login</a></li>
+  <li><a href="#">Register</a></li>
+</ul>
+  <h1>Climb Finder</h1>
+  <br>
+  <h3>Search for Climbs</h3>
+  <div class="searc">
+    <label for="">Location:</label>
+    <input type="text" name="location" class="location"><br>
+    <label for="">Climbing Grade:</label>
+    <input type="text" name="grade" class="grade"><br>
+    <label for="">Type of Climbing:</label>
+    <input type="text" name="type" class="type"><br>
+    <input type="Submit" value="search">
+  </div>
+
+  <div class="results"></div>
 </body>
 </html>
   </div>

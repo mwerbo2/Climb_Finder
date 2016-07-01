@@ -5,6 +5,8 @@ const dbConnection = ('mongodb://localhost:27017/climber')
 
 module.exports = {
   const filterObj = {};
+
+
   //filter function
 
   MongoClient.connect(dbConnection, function(err,db){
