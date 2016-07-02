@@ -30,17 +30,13 @@ $.ajax({
     let $ul = $('<ul>')
     let $li = $('<li>')
     for (var i = 0; i < data.length; i++) {
-      $li.append(data[i].name)
+      $li.append(data[i].name).append('<br />')
+      $ul.append($li)
 
 
 
     }
-    $ul.append($li)
     $results.append($ul)
-    // $body.append($ul)
-    // $div.append($ul)
-    // $results.append($div)
-    // console.log(data)
   }
 })
 
