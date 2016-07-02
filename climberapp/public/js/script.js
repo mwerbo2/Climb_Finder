@@ -17,7 +17,6 @@ $('button').click(function(){
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
 
 
-
 $.ajax({
   url: '/climbs/',
   type: 'GET',
@@ -29,37 +28,23 @@ $.ajax({
     let $div = $('<div class="climbs>')
     let $ul = $('<ul>')
     let $li = $('<li>')
+    let $img = $('<img src="">')
+
     for (var i = 0; i < data.length; i++) {
-      $li.append(data[i].name).append('<br />')
+      $li.append("<img src="+data[i].imgSmall+">").append('<br />')
+      $li.append("Name: " + data[i].name + " ").append('<br />')
+      $li.append("Type: " + data[i].type).append('<br />')
+      $li.append("Location: " + data[i].location[0]).append('<br />').append('<br />').append('<br />')
+
       $ul.append($li)
-
-
-
     }
     $results.append($ul)
   }
 })
-
-
-
-
-
-
-
 })
-
-
-
   console.log("I'm awake")
 });
 
 
-//grab the search bar value (txt)
-//set it to variable
 
-
-
-//ajax call to your backend
-
-//on click trigger -get the value the run the ajax
 
