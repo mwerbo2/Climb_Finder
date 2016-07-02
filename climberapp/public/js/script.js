@@ -3,31 +3,44 @@ $(document).ready(function() {
 
 const $body = $('body')
 const $climbs =  $('<climbs>')
-const $results = $('#results')
+const $results = $('.results')
 
 $climbs.addClass('climbs')
 
 $('button').click(function(){
-  console.log('clicked')
-  // $results.empty()
+  const $type = $('.type').val()
+  $results.empty()
   const queryObject = {}
-  console.log(queryObject)
-
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
   console.log(queryObject)
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
-  console.log(queryObject)
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
-  console.log(queryObject)
+
 
 
 $.ajax({
-  url: '/climbs',
+  url: '/climbs/',
   type: 'GET',
   dataType: 'json',
-  data: queryObject,
+  data:queryObject,
   success: function(data) {
-    console.log(data)
+    console.log(data[0].name)
+    // console.log(data.length)
+    let $div = $('<div class="climbs>')
+    let $ul = $('<ul>')
+    let $li = $('<li>')
+    for (var i = 0; i < data.length; i++) {
+      $li.append(data[i].name)
+
+
+
+    }
+    $ul.append($li)
+    $results.append($ul)
+    // $body.append($ul)
+    // $div.append($ul)
+    // $results.append($div)
+    // console.log(data)
   }
 })
 

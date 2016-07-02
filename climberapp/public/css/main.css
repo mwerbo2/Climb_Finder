@@ -20,6 +20,14 @@ ul.topnav li a {
   padding-left: 600 auto;
   padding-right: 5px;
 }
+
+.results {
+  height: 40vh;
+  width: 500px;
+  margin: 0 auto;
+  background-color: lightgrey;
+  margin-top: 50px;
+}
 .searc {
   height: 10vh;
   width: 400px;
