@@ -1,6 +1,4 @@
- [
-  {
-  "routes":[
+[
     {
       "id":"105810464",
       "name":"Laurel",
@@ -535,9 +533,6 @@
       "imgSmall":"https:\/\/www.mountainproject.com\/images\/63\/60\/107836360_small_2e829c.jpg",
       "imgMed":"https:\/\/www.mountainproject.com\/images\/63\/60\/107836360_medium_2e829c.jpg"
     }
-  ],
-  "success":1
-}
-]
+  ]
 
 
