@@ -33,7 +33,7 @@ router.post('/login', loginUser, function(req, res){
 });
 
 router.delete('/logout', function(req, res){
-  req,session.destroy(function(err){
+  req.session.destroy(function(err){
     res.redirect('/')
   });
 });

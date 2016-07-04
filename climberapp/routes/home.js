@@ -4,7 +4,7 @@ const routesData = require('../routelist.json')
 
 
 router.get('/', function(req, res){
-  res.render('home')
+  res.render('home', {user: req.session.user});
 })
 
 
