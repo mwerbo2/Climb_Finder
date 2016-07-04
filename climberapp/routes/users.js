@@ -8,7 +8,7 @@ const { createUser, loginUser } = require('../models/users');
 
 router.get('/register', function(req, res){
   console.log("got to the registration route")
-  res.render('register')
+  res.render('register', {user: req.session.user})
 })
 
 router.post('/register', createUser, function(req, res){
@@ -19,7 +19,7 @@ router.post('/register', createUser, function(req, res){
 
 router.get('/login', function(req, res){
   console.log("got to the login route")
-  res.render('login')
+  res.render('login', {user: req.session.user})
 })
 
 router.post('/login', loginUser, function(req, res){

@@ -27,16 +27,35 @@ $.ajax({
     // console.log(data.length)
     let $div = $('<div class="climbs>')
     let $ul = $('<ul>')
-    let $li = $('<li>')
     let $img = $('<img src="">')
 
+
     for (var i = 0; i < data.length; i++) {
+      let $li = $('<li>')
+      let $save = $('<button class="favorite">').text("Save Climb");
       $li.append("<img src="+data[i].imgSmall+">").append('<br />')
       $li.append("Name: " + data[i].name + " ").append('<br />')
-      $li.append("Type: " + data[i].type).append('<br />')
+      $li.append("Type: " + data[i].type).append($save).append('<br />')
       $li.append("Location: " + data[i].location[0]).append('<br />').append('<br />').append('<br />')
 
       $ul.append($li)
+
+      $('.favorite').click(function(event) {
+        console.log('clicked now', event.target.parent())
+        let $fave = event.target;
+        console.log($fave)
+        // $.ajax({
+        //   url: '/climbs/favorites',
+        //   type: 'POST',
+        //   dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+        //   success: function(data) {
+        //     console.log(data)
+        //   }
+
+        // })
+
+
+      });
     }
     $results.append($ul)
   }

@@ -19,7 +19,6 @@ module.exports = {
     }
 
 
-  //find array mdn function array.indexOf
 
   MongoClient.connect(dbConnection, function(err,db){
     if(err) throw err;
