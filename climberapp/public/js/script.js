@@ -35,8 +35,8 @@ $.ajax({
       let $save = $('<button class="favorite">').text("Save Climb");
       $li.append("<img src="+data[i].imgSmall+">").append('<br />')
       $li.append("Name: " + data[i].name + " ").append('<br />')
-      $li.append("Type: " + data[i].type).append($save).append('<br />')
-      $li.append("Location: " + data[i].location[0]).append('<br />').append('<br />').append('<br />')
+      $li.append("Type: " + data[i].type).append('<br />')
+      $li.append("Location: " + data[i].location[0]).append('<br />').append($save).append('<br />').append('<br />')
 
       $ul.append($li)
 
