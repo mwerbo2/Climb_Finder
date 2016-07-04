@@ -10,6 +10,7 @@ const port              = process.env.PORT || 3000
 // const routeData = require('routesData');
 const homeRoute         = require('./routes/home');
 const climbRoute        = require('./routes/climb');
+const usersRoute        = require('./routes/users');
 
 
 app.set('view engine', 'ejs');
@@ -32,9 +33,10 @@ app.use(logger('dev'));
 // app.use(bodyParser.json());
 
 
-app.use('/', homeRoute)
+app.use('/', homeRoute);
 // app.use('/signUp', signUpRoute)
-app.use('/climbs', climbRoute)
+app.use('/climbs', climbRoute);
+app.use('/user', usersRoute);
 
 
 app.listen(port, function(){
