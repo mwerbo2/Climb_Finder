@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Route Finder</title>
+    <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script type="text/javascript" src="/js/script.js"></script>
+
+  <script></script>
+</head>
+<body>
+  <div class="topnav">
+    <form action="http://localhost:3000/user/login">
+      <input type="submit" value="Login">
+    </form>
+    <form action="http://localhost:3000/user/register">
+      <input type="submit" value="Register">
+    </form>
+    <form method="post" action="user/logout?_method=DELETE">
+      <input type="submit" value="Logout">
+    </form>
+  </div>
+
+  <h2>Climb Finder</h2>
+    <h3>
+      <% if(user){ %>
+        Welcome, <%= user.fname %> <%= user.lname %>
+      <% } else { %>
+        Welcome, Guest
+      <% } %>
+  </h3>
+
+  <br>
+  <h3>Search for Climbs</h3>
+  <div class="searc">
+    <label for="">Climb rating:</label>
+    <input name="rating" class="rating"><br>
+    <label for="">Type of Climbing:</label>
+    <input type="text" name="type" class="type"><br>
+   <!--  <label for="">Location:</label>
+    <input type="text" name="location" class="location"><br> -->
+    <button>Search</button>
+  </div>
+  <div class="results">
+  </div>
+</body>
+</html>
+  </div>
+</body>
+</html>
