@@ -12,7 +12,6 @@ function loginUser(req, res, next) {
     db.collection('users').findOne({"email": email}, function(err, user) {
       if(err) throw err;
       if(user === null) {
-        // alert("Can't find user with email: ", email);
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         res.user = user;
       }

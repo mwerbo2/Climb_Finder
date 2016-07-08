@@ -18,8 +18,8 @@ router.get('/favorites', function(req, res){
 })
 
 router.post('/favorites', function(req, res){
-  console.log('this is my body' + req.body);
-  res.redirect('/favorites')
+  console.log('this is my body');
+  console.log(req.body);
 })
 
 module.exports = router;

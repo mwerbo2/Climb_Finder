@@ -21,15 +21,26 @@ module.exports = {
 
 
 
-  MongoClient.connect(dbConnection, function(err,db){
-    if(err) throw err;
-    db.collection('routes')
-    .find(filterObj)
-    .toArray(function(err, results){
+    MongoClient.connect(dbConnection, function(err,db){
       if(err) throw err;
-      res.filteredRoutes = results
-      next();
+      db.collection('routes')
+      .find(filterObj)
+      .toArray(function(err, results){
+        if(err) throw err;
+        res.filteredRoutes = results
+        next();
+      })
     })
-  })
+  }
+  saveClimb: function(req,res,next){
+    const clickSave = {};
+    $('.favorite').click(function(event){
+      console.log('clicked save')
+    })
+  }
+
 }
-}
+
+$('.favorite').click(function(event){
+  console.log("clicked save")
+})

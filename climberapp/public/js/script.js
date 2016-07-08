@@ -32,6 +32,8 @@ $.ajax({
 
     for (var i = 0; i < data.length; i++) {
       let $li = $('<li>')
+      $('<li>').attr('climbId', data[i].id);
+      console.log("climb id: ", data[i].name);
       let $save = $('<button class="favorite">').text("Save Climb");
       $li.append("<img src="+data[i].imgSmall+">").append('<br />')
       $li.append("Name: " + data[i].name + " ").append('<br />')
@@ -41,9 +43,11 @@ $.ajax({
       $ul.append($li)
 
       $('.favorite').click(function(event) {
-        console.log('clicked now', event.target.parent())
-        let $fave = event.target;
-        console.log($fave)
+        const saveCLick = {};
+        saveClick = event.target
+        console.log('clicked now', event.target)
+        // let $fave = event.target;
+        // console.log($fave)
         // $.ajax({
         //   url: '/climbs/favorites',
         //   type: 'POST',
