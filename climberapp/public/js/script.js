@@ -12,7 +12,6 @@ $('button').click(function(){
   $results.empty()
   const queryObject = {}
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
-  console.log(queryObject)
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
 
@@ -21,7 +20,7 @@ $.ajax({
   url: '/climbs/',
   type: 'GET',
   dataType: 'json',
-  data:queryObject,
+  data: queryObject,
   success: function(data) {
     console.log(data[0].name)
     // console.log(data.length)
