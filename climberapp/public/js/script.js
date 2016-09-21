@@ -64,7 +64,7 @@ $.ajax({
   }
 })
 })
-  console.log("I'm up and running. Ready to climb?")
+  console.log("On Belay? Belay On.")
 });
 
 
