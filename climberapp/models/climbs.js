@@ -31,7 +31,7 @@ module.exports = {
         next();
       })
     })
-  }
+  },
   saveClimb: function(req,res,next){
     const clickSave = {};
     $('.favorite').click(function(event){
@@ -41,6 +41,6 @@ module.exports = {
 
 }
 
-$('.favorite').click(function(event){
-  console.log("clicked save")
-})
+// $('.favorite').click(function(event){
+//   console.log("clicked save")
+// })
