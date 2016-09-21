@@ -32,9 +32,9 @@ app.use(logger('dev'));
 
 
 
-app.use('/', homeRoute);
+// app.use('/', homeRoute);
 app.use('/climbs', climbRoute);
-app.use('/user', usersRoute);
+// app.use('/user', usersRoute);
 
 
 app.listen(port, function(){
