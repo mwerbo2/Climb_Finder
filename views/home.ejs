@@ -9,31 +9,36 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <link rel="stylesheet" href="/css/main.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
   <script type="text/javascript" src="/js/script.js"></script>
-
-  <script></script>
 </head>
+
 <body>
-  <div class="topnav">
-    <form action="/user/login">
-      <input type="submit" value="Login">
-    </form>
-    <form action="user/register">
-      <input type="submit" value="Register">
-    </form>
-    <form method="post" action="user/logout?_method=DELETE">
-      <input type="submit" value="Logout">
-    </form>
+  <div class="container" id="top">
+    <section class="topnav">
+      <div class="two columns">
+        <form action="/user/login">
+          <input type="submit" value="Login">
+        </form>
+        <form action="user/register">
+          <input type="submit" value="Register">
+        </form>
+        <form method="post" action="user/logout?_method=DELETE">
+          <input type="submit" value="Logout">
+        </form>
+      </div>
+
+
+    <div class="ten columns">
+    <h2>Climb Finder</h2>
+      <h3>
+        <% if(user){ %>
+          Welcome, <%= user.fname %> <%= user.lname %>
+        <% } else { %>
+          Welcome, Guest
+        <% } %>
+    </h3>
+    </div>
+    </section>
   </div>
-
-  <h2>Climb Finder</h2>
-    <h3>
-      <% if(user){ %>
-        Welcome, <%= user.fname %> <%= user.lname %>
-      <% } else { %>
-        Welcome, Guest
-      <% } %>
-  </h3>
-
   <br>
   <h3>Search for Climbs</h3>
   <div class="searc">
