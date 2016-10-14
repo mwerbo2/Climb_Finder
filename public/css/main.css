@@ -11,7 +11,6 @@ h2 {
 }
 
 h3 {
-  color: white;
   text-align: center;
 }
 .columns {
@@ -23,8 +22,7 @@ h3 {
   background-image: url("https://holawallpaper.com/images/pictures/2016/02/original/rock-climbing-hd.jpg");
   background-size: cover;
   height: 50vh;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0 auto;
   padding-top: 30px;
 }
 .topnav {
