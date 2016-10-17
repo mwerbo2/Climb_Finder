@@ -24,6 +24,7 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
+      console.log(data);
       console.log(data[0].name)
       // console.log(data.length)
       let $div = $('<div class="climbs>')
