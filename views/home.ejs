@@ -15,17 +15,26 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 <div id="top">
   <div class="container">
     <section class="topnav">
-      <div class="two columns">
-        <form action="/user/login">
-          <input type="submit" value="Login">
-        </form>
-        <form action="user/register">
-          <input type="submit" value="Register">
-        </form>
-        <form method="post" action="user/logout?_method=DELETE">
-          <input type="submit" value="Logout">
-        </form>
-      </div>
+    <nav id="navi">
+      <ul>
+        <li>
+          <form action="/user/login">
+            <input type="submit" value="Login">
+          </form>
+        </li>
+        <li>
+          <form action="user/register">
+            <input type="submit" value="Register">
+          </form>
+        </li>
+        <li>
+          <form method="post" action="user/logout?_method=DELETE">
+            <input type="submit" value="Logout">
+          </form>
+        </li>
+        </div>
+      </ul>
+    </nav>
 
 
     <div class="ten columns">
@@ -43,6 +52,7 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </div>
   <br>
   <h3>Search for Climbs</h3>
+  <h3>and a belay partner</h3>
   <div class="searc">
     <label for="">Climb rating:</label>
     <input name="rating" class="rating"><br>
