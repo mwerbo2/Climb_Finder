@@ -16,8 +16,9 @@ $('#search').click(function(){
   console.log(queryObject)
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
+   if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
 
-
+console.log(queryObject)
   $.ajax({
     url: '/climbs/',
     type: 'GET',
