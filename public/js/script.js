@@ -18,7 +18,7 @@ $('#search').click(function(){
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
    if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
 
-console.log(queryObject)
+console.log("query object", queryObject)
   $.ajax({
     url: '/climbs/',
     type: 'GET',
@@ -70,7 +70,7 @@ console.log(queryObject)
     }
   })
 })
-  console.log("I'm awake")
+  console.log("I'm awake!")
 });
 
 
