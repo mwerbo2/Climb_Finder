@@ -13,7 +13,7 @@ $('#search').click(function(){
   $results.empty()
   const queryObject = {}
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
-  console.log(queryObject)
+  console.log("query object", queryObject)
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
    if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
@@ -57,13 +57,13 @@ console.log(queryObject)
           data: saveClimbObj,
         })
         .done(function() {
-          console.log("success");
+          console.log("successfully saved");
         })
         .fail(function() {
           console.log("error");
         })
         .always(function() {
-          console.log("complete");
+          console.log("completed save");
         });
 
       })
