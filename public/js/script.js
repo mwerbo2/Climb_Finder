@@ -38,6 +38,8 @@ $('#search').click(function(){
         $li.append("Location: " + data[i].location[0]).append('<br />').append($save).append('<br />').append('<br />')
         $ul.append($li)
       }
+
+      //This feature should only be allowed for users who have logged in, but for demo purposes it's open
       const saveClimbObj ={};
       $results.append($ul)
       $('.favorite').click(function(event) {
