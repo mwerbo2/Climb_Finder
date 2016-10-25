@@ -13,21 +13,16 @@ $('#search').click(function(){
   $results.empty()
   const queryObject = {}
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
-  console.log("query object", queryObject)
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
-   if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
+  if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
 
-console.log("query object", queryObject)
   $.ajax({
     url: '/climbs/',
     type: 'GET',
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      console.log(data);
-      console.log(data[0].name)
-      // console.log(data.length)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $img = $('<img src="">')
@@ -46,6 +41,7 @@ console.log("query object", queryObject)
       const saveClimbObj ={};
       $results.append($ul)
       $('.favorite').click(function(event) {
+        console.log(this);
         console.log($(this).parent().data('climbid'));
         saveClimbObj.id = $(this).parent().data('climbid');
         console.log(saveClimbObj)

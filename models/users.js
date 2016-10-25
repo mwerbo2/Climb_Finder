@@ -12,6 +12,7 @@ function loginUser(req, res, next) {
     db.collection('users').findOne({"email": email}, function(err, user) {
       if(err) throw err;
       if(user === null) {
+        console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         res.user = user;
       }
