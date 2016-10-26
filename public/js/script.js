@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
 
-const $body = $('body')
-const $climbs =  $('<climbs>')
-const $results = $('.results')
+const $body             = $('body');
+const $climbs           = $('<climbs>');
+const $results          = $('.results');
 
 $climbs.addClass('climbs')
 
@@ -63,11 +63,13 @@ $('#search').click(function(){
         .always(function() {
           console.log("completed save");
         });
-
       })
     }
   })
 })
+
+
+
   console.log("I'm awake!")
 });
 
