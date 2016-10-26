@@ -1,4 +1,7 @@
+jQuery('#datetimepicker').datetimepicker();
+
 $(document).ready(function() {
+
 
 
 const $body             = $('body');
