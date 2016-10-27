@@ -52,19 +52,18 @@
   <br>
   <div class="twelve columns">
     <h3>Search for places to climb</h3>
-    <h5>Select when you'll be climbing and find a partner who you could belay with </h5>
+    <h5>Find someone to climb with</h5>
     <div class="searc">
-      <label for="">Climb rating:</label>
-      <input type="text" name="rating" class="rating"><br>
-      <label for="">Type of Climbing:</label>
-      <input type="text" name="type" class="type"><br>
-      <label for="">Indoor Gym?</label>
-      <input type="text" name="gym" class="gym"><br>
-     <!--  <label for="">Location:</label>
-      <input type="text" name="location" class="location"><br> -->
+      <select name="" id="location">
+        <option value="" disabled selected>Climbing Gym</option>
+        <option value="The Cliffs LIC">The Cliffs LIC</option>
+        <option value="DUMBO Boulders">Dumbo Boulders</option>
+        <option value="Brooklyn Boulders - Queensbridge">Brooklyn Boulders - Queensbridge</option>
+        <option value="Brookyln Boulders - Brooklyn">Brookyln Boulders - Brooklyn</option>
+        <option value="Chelsea Piers">Chelsea Piers Indoor Climbing</option>
+      </select>
+      <input id="datetimepicker" type="text" placeholder="When do you want to climb?">
       <button id="search">Search</button>
-      <input id="datetimepicker" type="text" >
-
     </div>
   </div>
   <div class="results">
