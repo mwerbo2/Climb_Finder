@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);
 
 function loginUser(req, res, next) {
+  console.log("req.body.login", req.body)
   let email = req.body.email;
   let password = req.body.password;
 
@@ -28,9 +29,9 @@ function createSecure(email, password, callback) {
     })
   })
 }
-
 function createUser(req, res, next) {
   createSecure( req.body.email, req.body.password, saveUser)
+  console.log(req.body);
   function saveUser(email, hash) {
     MongoClient.connect(dbConnection, function(err, db) {
       let userInfo = {
@@ -38,8 +39,8 @@ function createUser(req, res, next) {
         lname: req.body.lname,
         email: email,
         passwordDigest: hash,
-        location: "The Cliffs",
-        day: "Nov 23, 2016"
+        climblocation: req.body.climblocation,
+        climbdate: req.body.climbdate
       }
       db.collection('users').insertOne(userInfo, function(err, results) {
         if(err) throw err;
@@ -48,8 +49,5 @@ function createUser(req, res, next) {
     });
   }
 }
-
-
-
 
 module.exports = { createUser, loginUser }

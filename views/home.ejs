@@ -21,13 +21,14 @@
     </div>
       <ul>
       <% if(user){ %>
-            <div class="one column">
-        <li>
-          <form method="post" action="user/logout?_method=DELETE">
-            <input class="login" type="submit" value="Logout">
-          </form>
-        </li>
-    </div>
+        <div class="one column">
+        <!-- <h1> <%= user.fname %> </h1> -->
+          <li>
+            <form method="post" action="user/logout?_method=DELETE">
+              <input class="login" type="submit" value="Logout">
+            </form>
+          </li>
+        </div>
         <% } else { %>
              <div class="one column">
         <li>

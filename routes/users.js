@@ -12,7 +12,7 @@ router.get('/register', function(req, res){
 })
 
 router.post('/register', createUser, function(req, res){
-  console.log(req.body);
+  console.log("req.body", req.body);
   res.redirect('/')
 })
 
@@ -23,7 +23,7 @@ router.get('/login', function(req, res){
 })
 
 router.post('/login', loginUser, function(req, res){
-  console.log(res.user);
+  console.log("res.user", res.user);
   req.session.user = res.user;
 
   req.session.save(function(err){
