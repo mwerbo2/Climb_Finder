@@ -1,4 +1,13 @@
-# Climb Finder
+# Climb Finder v2.0
+##Synopsis
+
+Climbfinder helps you find other climbers to climb with.
+
+##User Stories
+Guests can search for a climbing gym and particular day and view what other climbers are going that day. Users are able to post when and where they plan to climb as well as connect with other climbers. 
+
+
+# Climb Finder V1.0
 ##Synopsis
 
 Climb finder provides route information and user generated feedback on routes. Utilizing the Mountain Project API: https://www.mountainproject.com/data, users will be able view a listing of routes filtered by region, climb type and climb grade.   

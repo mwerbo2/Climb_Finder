@@ -37,7 +37,9 @@ function createUser(req, res, next) {
         fname: req.body.fname,
         lname: req.body.lname,
         email: email,
-        passwordDigest: hash
+        passwordDigest: hash,
+        location: "The Cliffs",
+        day: "Nov 23, 2016"
       }
       db.collection('users').insertOne(userInfo, function(err, results) {
         if(err) throw err;
@@ -46,5 +48,8 @@ function createUser(req, res, next) {
     });
   }
 }
+
+
+
 
 module.exports = { createUser, loginUser }

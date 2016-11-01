@@ -10,6 +10,7 @@ module.exports = {
       // if('location' in req.query.location){
       //   filterObj['location'] = new RegExp('^' + req.query.location, 'i')
       // }
+      console.log("query", req.query)
       if('rating' in req.query) {
         filterObj['rating'] = new RegExp('^' + req.query.rating, 'i')
         console.log(filterObj)

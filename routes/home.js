@@ -7,7 +7,6 @@ router.get('/', function(req, res){
   res.render('home', {user: req.session.user});
 })
 
-
 router.get('/all', function(req, res){
   res.json(routesData)
 })

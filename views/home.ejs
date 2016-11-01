@@ -43,33 +43,25 @@
           </form>
         </li>
     </div>
-
         <% } %>
         </div>
       </ul>
     </div>
+    <h2>Climb Finder</h2>
     </nav>
     </section>
   </div>
 
     <div class="twelve columns">
-      <h2>Climb Finder</h2>
+
       <h3>
-        <% if(user){ %>
-          Welcome, <%= user.fname %> <%= user.lname %>
-        <% } else { %>
-          Welcome, Guest
-        <% } %>
       </h3>
     </div>
 
-
-
-
   <br>
+  <div class="row">
   <div class="twelve columns">
-    <h3>Search for places to climb</h3>
-    <h5>Find someone to climb with</h5>
+    <h3>Find someone to climb with</h3>
     <div class="searc">
       <select name="" id="location">
         <option value="" disabled selected>Climbing Gym</option>
@@ -82,6 +74,7 @@
       <input id="datetimepicker" type="text" placeholder="When do you want to climb?">
       <button style="display: inline-block" id="search">Search</button>
     </div>
+  </div>
   </div>
   <div class="results">
   </div>
