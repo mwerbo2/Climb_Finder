@@ -15,8 +15,10 @@ $('#search').click(function(){
   const $type = $('.type').val()
   $results.empty()
   const queryObject = {}
+  if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue())
   queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue()
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
+
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
   if ($('.type').val() !== '') queryObject.type = $('.type').val();
