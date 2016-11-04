@@ -28,10 +28,11 @@ module.exports = {
     MongoClient.connect(dbConnection, function(err,db){
       if(err) throw err;
       db.collection('users')
-      .find(filterObj)
+      .find({"climblocation": "The Cliffs"})
       .toArray(function(err, results){
         if(err) throw err;
         res.filteredRoutes = results
+        console.log(results)
         next();
       })
     })
