@@ -10,6 +10,10 @@ module.exports = {
       // if('location' in req.query.location){
       //   filterObj['location'] = new RegExp('^' + req.query.location, 'i')
       // }
+      if("climblocation" in req.query) {
+        filterObj['climblocation'] = new RegExp('^' + req.query.climblocation, 'i')
+        console.log(filterObj)
+      }
       console.log("query", req.query)
       if('rating' in req.query) {
         filterObj['rating'] = new RegExp('^' + req.query.rating, 'i')
@@ -23,7 +27,7 @@ module.exports = {
 
     MongoClient.connect(dbConnection, function(err,db){
       if(err) throw err;
-      db.collection('routes')
+      db.collection('users')
       .find(filterObj)
       .toArray(function(err, results){
         if(err) throw err;
