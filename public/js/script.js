@@ -1,4 +1,7 @@
-jQuery('#datetimepicker').datetimepicker();
+jQuery('#datetimepicker').datetimepicker( {
+  timepicker:false,
+  format:'d.m.Y'
+});
 
 $(document).ready(function() {
 
@@ -17,7 +20,7 @@ $('#search').click(function(){
   const queryObject = {}
   // if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue())
   // queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue()
-  if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].text;
+  if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
 
   if ($('.location').val() !== '') queryObject.location = $('.location').val();
   if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
@@ -30,19 +33,20 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
+      console.log(data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $img = $('<img src="">')
 
 
+
       for (var i = 0; i < data.length; i++) {
-        let $li = $('<li>')
-        $li.attr('data-climbId', data[i].id);
-        let $save = $('<button class="favorite">').text("Save Climb");
-        $li.append("<img src="+data[i].imgSmall+">").append('<br />')
-        $li.append("Name: " + data[i].name + " ").append('<br />')
-        $li.append("Type: " + data[i].type).append('<br />')
-        $li.append("Location: " + data[i].location[0]).append('<br />').append($save).append('<br />').append('<br />')
+        let $li = $('<li>');
+        // $li.attr('data-climbId', data[i].fname);
+        let $save = $("<a href='/user/register'></a>").text(" Belay with Me");
+        $li.append("Name "+ data[i].fname + " " + data[i].lname+">").append('<br />')
+        $li.append("When: " + data[i].climbdate + " ").append('<br />')
+        $li.append("Type: " + data[i].type).append('<br />').append($save).append('<br />').append('<br />')
         $ul.append($li)
       }
 

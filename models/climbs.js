@@ -11,7 +11,7 @@ module.exports = {
       //   filterObj['location'] = new RegExp('^' + req.query.location, 'i')
       // }
       if("climblocation" in req.query) {
-        filterObj['climblocation'] = new RegExp('^' + req.query.climblocation, 'i')
+        filterObj['climblocation'] = new RegExp(req.query.climblocation)
         console.log(filterObj)
       }
       console.log("query", req.query)
@@ -28,11 +28,10 @@ module.exports = {
     MongoClient.connect(dbConnection, function(err,db){
       if(err) throw err;
       db.collection('users')
-      .find({"climblocation": "The Cliffs"})
+      .find(filterObj)
       .toArray(function(err, results){
         if(err) throw err;
         res.filteredRoutes = results
-        console.log(results)
         next();
       })
     })
