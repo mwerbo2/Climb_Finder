@@ -41,7 +41,7 @@ $('#search').click(function(){
 
 
       for (var i = 0; i < data.length; i++) {
-        let $li = $('<li>');
+        let $li = $('<li class="gobble">');
         // $li.attr('data-climbId', data[i].fname);
         let $save = $("<a href='/user/register'></a>").text(" Belay with Me");
         $li.append("Name "+ data[i].fname + " " + data[i].lname+">").append('<br />')
