@@ -33,7 +33,7 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      console.log(data)
+      console.log("data ", data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $img = $('<img src="">')
@@ -41,18 +41,26 @@ $('#search').click(function(){
 
 
       for (var i = 0; i < data.length; i++) {
-        let $li = $('<li class="gobble">');
-        // $li.attr('data-climbId', data[i].fname);
-        let $save = $("<a href='/user/register'></a>").text(" Belay with Me");
-        $li.append("Name "+ data[i].fname + " " + data[i].lname+">").append('<br />')
-        $li.append("When: " + data[i].climbdate + " ").append('<br />')
-        $li.append("Type: " + data[i].type).append('<br />').append($save).append('<br />').append('<br />')
-        $ul.append($li)
+        let $diver = $('<div class="climb">')
+        let $p1 = $('<p>').text(data[i].fname);
+        let $p2 = $('<p>').text(data[i].climblocation);
+
+        $diver.append($p1);
+        $diver.append($p2);
+        // let $li = $('<li class="gobble">');
+        // // $li.attr('data-climbId', data[i].fname);
+        // let $save = $("<a href='/user/register'></a>").text("Belay with Me");
+        // $li.append("Name: " + data[i].fname + " " + data[i].lname + " ");
+        // $li.append("When: " + data[i].climbdate + " ");
+        // $li.append("Where: " + data[i].climblocation).append($save).append("<br>").css('border', 'solid');
+        // $ul.append($li)
+        $results.append($diver);
       }
+
 
       //This feature should only be allowed for users who have logged in, but for demo purposes it's open
       const saveClimbObj ={};
-      $results.append($ul)
+      // $results.append($ul)
       $('.favorite').click(function(event) {
         console.log(this);
         console.log($(this).parent().data('climbid'));

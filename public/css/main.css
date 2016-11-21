@@ -28,6 +28,10 @@ h3 {
 h5 {
   text-align: center;
 }
+.gobble {
+  margin: 5px;
+  border: solid black 1px;
+}
 .columns {
   width: 100%;
 }
