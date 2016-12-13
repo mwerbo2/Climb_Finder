@@ -14,14 +14,7 @@ module.exports = {
         filterObj['climblocation'] = new RegExp(req.query.climblocation)
         console.log(filterObj)
       }
-      console.log("query", req.query)
-      if('rating' in req.query) {
-        filterObj['rating'] = new RegExp('^' + req.query.rating, 'i')
-        console.log(filterObj)
-      }
-      if('type' in req.query) {
-        filterObj['type'] = new RegExp('^' + req.query.type, 'i')
-      }
+
 
 
 
@@ -32,6 +25,7 @@ module.exports = {
       .toArray(function(err, results){
         if(err) throw err;
         res.filteredRoutes = results
+        console.log(results);
         next();
       })
     })

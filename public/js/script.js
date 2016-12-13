@@ -1,6 +1,6 @@
 jQuery('#datetimepicker').datetimepicker( {
   timepicker:false,
-  format:'d.m.Y'
+  format:'m/d/Y'
 });
 
 $(document).ready(function() {
