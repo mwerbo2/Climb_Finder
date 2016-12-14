@@ -4,28 +4,22 @@ jQuery('#datetimepicker').datetimepicker( {
 });
 
 $(document).ready(function() {
+  const $body             = $('body');
+  const $climbs           = $('<climbs>');
+  const $results          = $('.results');
 
-
-
-const $body             = $('body');
-const $climbs           = $('<climbs>');
-const $results          = $('.results');
-
-$climbs.addClass('climbs')
+  $climbs.addClass('climbs')
 
 
 $('#search').click(function(){
-  const $type = $('.type').val()
-  $results.empty()
-  const queryObject = {}
-  // if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue())
-  // queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue()
+  $results.empty();
+  // console.log($("#datetimepicker").data("xdsoft_datetimepicker").getValue())
+  const queryObject = {};
+  if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
+  queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
 
-  if ($('.location').val() !== '') queryObject.location = $('.location').val();
-  if ($('.rating').val() !== '') queryObject.rating = $('.rating').val();
-  if ($('.type').val() !== '') queryObject.type = $('.type').val();
-  if ($('.gym').val() !== '') queryObject.gym = $('.gym').val();
+  console.log("Query time", queryObject.time.toJSON(), " location ", queryObject.climblocation);
 
   $.ajax({
     url: '/climbs/',
