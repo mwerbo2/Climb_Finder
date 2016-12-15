@@ -17,9 +17,11 @@ $('#search').click(function(){
   const queryObject = {};
   if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
   queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
+  queryObject.unixTime = queryObject.time.getTime();
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
 
-  console.log("Query time", queryObject.time.toJSON(), " location ", queryObject.climblocation);
+  console.log(queryObject)
+  // console.log("Query time", queryObject.time.getTime(), " location ", queryObject.climblocation);
 
   $.ajax({
     url: '/climbs/',
