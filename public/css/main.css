@@ -1,5 +1,6 @@
 body {
 background-color: #FFFFFF;
+margin: 0;
 }
 .container {
     width: 100%;
@@ -27,6 +28,13 @@ h3 {
 }
 h5 {
   text-align: center;
+}
+footer {
+  height: 20vh;
+  width: 100%;
+  background-color: #0f1721;
+  font: white;
+
 }
 .gobble {
   margin: 5px;
