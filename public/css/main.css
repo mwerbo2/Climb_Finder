@@ -34,8 +34,9 @@ h5 {
   text-align: center;
 }
 footer {
-  height: 20vh;
+  height: 11vh;
   width: 100%;
+  padding-top: 24px;
   background-color: #0f1721;
   font: white;
   text-align: center;
