@@ -91,6 +91,7 @@ $('#search').click(function(){
       if (com.responseText === "[]" ) {
           let $peep = $('<p>').text('Select a different date');
           $results.append($peep)
+          console.log('hello')
       }
 
     }
