@@ -54,31 +54,45 @@ $('#search').click(function(){
       }
 
 
+
+
+
       //This feature should only be allowed for users who have logged in, but for demo purposes it's open
       const saveClimbObj ={};
       // $results.append($ul)
-      $('.favorite').click(function(event) {
-        console.log(this);
-        console.log($(this).parent().data('climbid'));
-        saveClimbObj.id = $(this).parent().data('climbid');
-        console.log(saveClimbObj)
+      // $('.favorite').click(function(event) {
+      //   console.log(this);
+      //   console.log($(this).parent().data('climbid'));
+      //   saveClimbObj.id = $(this).parent().data('climbid');
+      //   console.log(saveClimbObj)
 
-        $.ajax({
-          url: '/climbs/favorites',
-          type: 'POST',
-          dataType: 'json',
-          data: saveClimbObj,
-        })
-        .done(function() {
-          console.log("successfully saved");
-        })
-        .fail(function() {
-          console.log("error");
-        })
-        .always(function() {
-          console.log("completed save");
-        });
-      })
+      //   $.ajax({
+      //     url: '/climbs/favorites',
+      //     type: 'POST',
+      //     dataType: 'json',
+      //     data: saveClimbObj,
+      //   })
+      //   .done(function() {
+      //     console.log("successfully saved");
+      //   })
+      //   .fail(function() {
+      //     console.log("error");
+      //   })
+      //   .always(function() {
+      //     console.log("completed save");
+      //   });
+      // })
+    },
+    error: function(er) {
+      console.log(er)
+    },
+    complete: function(com){
+      console.log(com);
+      if (com.responseText === "[]" ) {
+          let $peep = $('<p>').text('Select a different date');
+          $results.append($peep)
+      }
+
     }
   })
 })
