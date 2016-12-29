@@ -6,12 +6,23 @@ margin: 0;
     width: 100%;
     max-width: 1300px;
 }
+h2.register {
+  color: black;
+  text-align: left;
+}
 input.login {
   width: 100px;
   padding: 0 20px 0 20px;
   text-align: center;
   margin: 0 auto;
   color: white;
+}
+#middle {
+  background-color: #E5E5E5;
+}
+.climb {
+  background-color: white;
+  border: solid 1px grey;
 }
 h1 {
   color: white;
@@ -80,7 +91,7 @@ form {
   margin: 0;
 }
 .results {
-  background-color: #E8E8E8;
+  /*background-color: #E8E8E8;*/
   height: 40vh;
   width: 800px;
   margin: 0 auto;

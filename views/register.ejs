@@ -12,23 +12,24 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="twelve columns">
-        <h1 class="registerHead">Register</h1>
+      <div class="six columns">
+        <h2 class="register">Contact Info</h2>
           <form action="/user/register" method="post">
-            <div class="contact">
+
               <label for="">First Name:</label>
               <input type="text" name="fname"><br>
               <label for="">Last Name:</label>
               <input type="text" name="lname"><br>
               <label for="">Location:</label>
-            </div>
               <input type="text" name="location"><br>
               <label for="">Email:</label>
               <input type="text" name="email"><br>
               <label for="">Password:</label>
-
-            <div class="climb">
               <input type="password" name="password"><br>
+      </div>
+      <div class="six columns">
+            <div class="climber">
+              <h2 class="register">Climbing Details</h2>
               <label for="">Comfortable Climbing Grade:</label>
               <input type="text" name="grade"><br>
               <label for="">Type of Climbing:</label>
@@ -41,6 +42,7 @@
               <input type="Submit" value="Create New User">
             </div>
           </form>
+        </div>
       </div>
     </div>
 </div>

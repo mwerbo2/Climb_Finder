@@ -36,13 +36,17 @@ $('#search').click(function(){
 
 
 
+
       for (var i = 0; i < data.length; i++) {
         let $diver = $('<div class="climb">')
-        let $p1 = $('<p>').text(data[i].fname);
+        let $p1 = $('<p>').text(data[i].fname +" " + data[i].lname);
         let $p2 = $('<p>').text(data[i].climblocation);
+        let $connect = $('<button>').text('Connect');
+
 
         $diver.append($p1);
         $diver.append($p2);
+        $diver.append($connect)
         // let $li = $('<li class="gobble">');
         // // $li.attr('data-climbId', data[i].fname);
         // let $save = $("<a href='/user/register'></a>").text("Belay with Me");
@@ -89,9 +93,15 @@ $('#search').click(function(){
     complete: function(com){
       console.log(com);
       if (com.responseText === "[]" ) {
-          let $peep = $('<p>').text('Select a different date');
+          let $peep = $('<h1>').text('Looks like no one is climbing this day.');
+          let $peepTwo = $('<p>').text('Either try searching for a different day or register a day that you want to climb.')
+          let $reg = $('<li>')
+          let $regForm = $("<form action='user/register'")
+          let $inputs = $("<input class='login' type='submit' value='Register'>")
           $results.append($peep)
-          console.log('hello')
+          $results.append($peepTwo)
+          // $inputs.append($regForm)
+
       }
 
     }
