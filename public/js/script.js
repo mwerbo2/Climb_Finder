@@ -96,11 +96,12 @@ $('#search').click(function(){
           let $peep = $('<h1>').text('Looks like no one is climbing this day.');
           let $peepTwo = $('<p>').text('Either try searching for a different day or register a day that you want to climb.')
           let $reg = $('<li>')
-          let $regForm = $("<form action='user/register'")
+          let $regForm = $('<form action=/user/register></form>')
           let $inputs = $("<input class='login' type='submit' value='Register'>")
           $results.append($peep)
           $results.append($peepTwo)
-          // $inputs.append($regForm)
+          $regForm.append($inputs)
+          $results.append($regForm)
 
       }
 
