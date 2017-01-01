@@ -1,4 +1,4 @@
-jQuery('#datetimepicker').datetimepicker( {
+rjQuery('#datetimepicker').datetimepicker( {
   timepicker:false,
   format:'m/d/Y'
 });
@@ -32,6 +32,7 @@ $('#search').click(function(){
       console.log("data ", data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
+      let $p = $('<p>')
       let $img = $('<img src="">')
 
 
@@ -102,7 +103,6 @@ $('#search').click(function(){
           $results.append($peepTwo)
           $regForm.append($inputs)
           $results.append($regForm)
-
       }
 
     }
