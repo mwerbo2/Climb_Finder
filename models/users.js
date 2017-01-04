@@ -31,7 +31,7 @@ function createSecure(email, password, callback) {
 }
 function createUser(req, res, next) {
   createSecure( req.body.email, req.body.password, saveUser)
-  console.log(req.body);
+  console.log("creating user: ", req.body);
   function saveUser(email, hash) {
     MongoClient.connect(dbConnection, function(err, db) {
       let userInfo = {

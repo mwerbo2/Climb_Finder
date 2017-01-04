@@ -1,4 +1,4 @@
-rjQuery('#datetimepicker').datetimepicker( {
+jQuery('#datetimepicker').datetimepicker( {
   timepicker:false,
   format:'m/d/Y'
 });
