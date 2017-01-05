@@ -12,24 +12,35 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="five columns offset-by-two">
+      <div class="three columns offset-by-five">
         <h2 class="register">Contact Info</h2>
           <form action="/user/register" method="post">
-              <label for="">First Name:</label>
+              <label for="">First Name</label>
               <input type="text" name="name"><br>
-              <label for="">Last Name:</label>
+              <label for="">Last Name</label>
               <input type="text" name="lname"><br>
-              <label for="">Email:</label>
+              <label for="">Email</label>
               <input type="text" name="email"><br>
-              <label for="">Password:</label>
+              <label for="">Password</label>
               <input type="password" name="password"><br>
+              <label for="">Climb Experience</label>
+              <select name="level" id="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+              </select><br>
+              <input type="Submit" value="Create New User">
       </div>
-      <div class="three columns">
+      <!-- <div class="four columns">
             <div class="climber">
               <h2 class="register">Climbing Details</h2>
-              <label for="">Climbing Level:</label>
-              <input type="text" name="grade"><br>
-              <label for="">Type of Climbing:</label>
+              <label for="">Experience</label>
+              <select name="level" id="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+              </select>
+              <label for="">Type of Climbing</label>
               <input type="text" name="type"><br>
               <label for="">Which gym?</label>
               <input type="text" name="climblocation">
@@ -37,7 +48,7 @@
               <input type="text" name="climbdate">
               <br>
               <input type="Submit" value="Create New User">
-            </div>
+            </div> -->
           </form>
         </div>
       </div>
