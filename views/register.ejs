@@ -12,22 +12,19 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="six columns">
+      <div class="six columns offset-by-two">
         <h2 class="register">Contact Info</h2>
           <form action="/user/register" method="post">
-
               <label for="">First Name:</label>
-              <input type="text" name="fname"><br>
+              <input type="text" name="name"><br>
               <label for="">Last Name:</label>
               <input type="text" name="lname"><br>
-              <label for="">Location:</label>
-              <input type="text" name="location"><br>
               <label for="">Email:</label>
               <input type="text" name="email"><br>
               <label for="">Password:</label>
               <input type="password" name="password"><br>
       </div>
-      <div class="six columns">
+      <div class="four columns">
             <div class="climber">
               <h2 class="register">Climbing Details</h2>
               <label for="">Comfortable Climbing Grade:</label>
@@ -45,6 +42,13 @@
         </div>
       </div>
     </div>
+    <footer>
+    <a href="/">Climb Finder</a>
+    <span style="color:white;font-size:22px;">|</span>
+    <a href="/user/login" title="">Login</a>
+    <span style="color:white;font-size:22px;">|</span>
+    <a target="_blank" href="https://github.com/mwerbo2/Climb_Finder">Github Repository</a>
+    </footer>
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css" >

@@ -45,6 +45,8 @@ h5 {
   text-align: center;
 }
 footer {
+  position:absolute;
+  bottom:0;
   height: 11vh;
   width: 100%;
   padding-top: 24px;
@@ -80,7 +82,6 @@ li {
   padding-top: 30px;
 }
 .topnav {
-
   height: 20vh;
   padding: none;
   margin: 0 auto;
@@ -92,11 +93,11 @@ form {
 }
 .results {
   /*background-color: #E8E8E8;*/
-  height: 40vh;
+  /*height: 40vh;*/
   width: 800px;
   margin: 0 auto;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 110px;
   padding: 10px;
 }
 .searc {
@@ -105,5 +106,7 @@ form {
   margin: 0 auto;
   display: block;
 }
-
+#bottom {
+  position: relative;
+}
 
