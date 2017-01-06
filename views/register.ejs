@@ -12,51 +12,42 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="three columns offset-by-five">
-        <h2 class="register">Contact Info</h2>
-          <form action="/user/register" method="post">
-              <label for="">First Name</label>
-              <input type="text" name="fname"><br>
-              <label for="">Last Name</label>
-              <input type="text" name="lname"><br>
-              <label for="">Email</label>
-              <input type="text" name="email"><br>
-              <label for="">Password</label>
-              <input type="password" name="password"><br>
-              <label for="">Climb Experience</label>
-              <select name="level" id="level">
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Expert">Expert</option>
-              </select><br>
-              <input type="Submit" value="Create New User" >
+      <div class="two columns offset-by-three">
+        <h2 class="register">Register</h2>
+        <form action="/user/register" method="post">
+          <label for="">First Name</label>
+          <input type="text" name="fname"><br>
+          <label for="">Last Name</label>
+          <input type="text" name="lname"><br>
+          <label for="">Email</label>
+          <input type="text" name="email"><br>
+          <label for="">Password</label>
+          <input type="password" name="password"><br>
+          <label for="">Climb Experience</label>
+          <select name="level" id="level">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+          </select><br>
+          <input type="Submit" value="Create New User" ><br>
+        </form>
       </div>
-      <!-- <div class="four columns">
-            <div class="climber">
-              <h2 class="register">Climbing Details</h2>
-              <label for="">Experience</label>
-              <select name="level" id="level">
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Expert">Expert</option>
-              </select>
-              <label for="">Type of Climbing</label>
-              <input type="text" name="type"><br>
-              <label for="">Which gym?</label>
-              <input type="text" name="climblocation">
-              <label for="">When?</label>
-              <input type="text" name="climbdate">
-              <br>
-              <input type="Submit" value="Create New User">
-            </div> -->
-          </form>
+      <div class="four columns offset-by-two">
+         <h1 style="color: black; text-align: left;">Log in</h1>
+        <form action="/user/login" method="post">
+          <label for="">Email:</label>
+          <input type="text" name="email"><br>
+          <label for="">Password:</label>
+          <input type="password" name="password"><br>
+          <input type="Submit" value="Log in">
+        </form>
+      </div>
+
         </div>
       </div>
     </div>
     <footer>
     <a href="/">Climb Finder</a>
-    <span style="color:white;font-size:22px;">|</span>
-    <a href="/user/login" title="">Login</a>
     <span style="color:white;font-size:22px;">|</span>
     <a target="_blank" href="https://github.com/mwerbo2/Climb_Finder">Github Repository</a>
     </footer>
