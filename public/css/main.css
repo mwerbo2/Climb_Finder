@@ -100,6 +100,9 @@ form {
   margin-bottom: 110px;
   padding: 10px;
 }
+#level {
+  width: 150px;
+}
 .searc {
   height: 10vh;
   width: 400px;

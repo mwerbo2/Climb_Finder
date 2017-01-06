@@ -39,8 +39,7 @@ function createUser(req, res, next) {
         lname: req.body.lname,
         email: email,
         passwordDigest: hash,
-        climblocation: req.body.climblocation,
-        climbdate: req.body.climbdate
+        level: req.body.level
       }
       db.collection('users').insertOne(userInfo, function(err, results) {
         if(err) throw err;

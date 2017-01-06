@@ -13,7 +13,6 @@ $(document).ready(function() {
 
 $('#search').click(function(){
   $results.empty();
-  // console.log($("#datetimepicker").data("xdsoft_datetimepicker").getValue())
   const queryObject = {};
   if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
   queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
