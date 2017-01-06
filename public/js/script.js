@@ -88,13 +88,13 @@ $('#search').click(function(){
       // })
     },
     error: function(er) {
-      console.log(er)
+      // console.log(er)
     },
     complete: function(com){
       console.log(com);
       if (com.responseText === "[]" ) {
           let $peep = $('<h1>').text('Looks like no one is climbing this day.');
-          let $peepTwo = $('<p>').text('Either try searching for a different day or register a day that you want to climb.')
+          let $peepTwo = $('<p style="text-align:center;">').text('Either try searching for a different day or register to post a day that you want to climb.')
           let $reg = $('<li>')
           let $regForm = $('<form action=/user/register></form>')
           let $inputs = $("<input class='login' type='submit' value='Register'>")
