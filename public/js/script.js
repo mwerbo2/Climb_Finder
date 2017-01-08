@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 
 $('#search').click(function(){
+
   $results.empty();
   const queryObject = {};
   if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
@@ -102,6 +103,7 @@ $('#search').click(function(){
           let $reg = $('<li>')
           let $regForm = $('<form action=/user/register></form>').css('margin-left', '350px');
           let $inputs = $("<input class='login' type='submit' value='Register'>")
+          let $nameForm = $('<form action=/user/register></form>')
           $results.append($peep)
           $results.append($peepTwo)
           $regForm.append($inputs)
