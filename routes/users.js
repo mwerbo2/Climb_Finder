@@ -23,14 +23,15 @@ router.get('/login', function(req, res){
 })
 
 router.post('/login', loginUser, function(req, res){
-  console.log("res.user", res.user);
-  console.log("save body ", req.body)
+  // console.log("res.user", res.user);
+  // console.log("save body ", req.body)
   req.session.user = res.user;
 
   req.session.save(function(err){
     if(err) throw err;
     res.redirect('/');
     console.log("req session:", req.session.user)
+    console.log(res)
   });
 });
 

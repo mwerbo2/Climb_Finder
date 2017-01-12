@@ -10,9 +10,11 @@ const port              = process.env.PORT || 3000
 const homeRoute         = require('./routes/home');
 const climbRoute        = require('./routes/climb');
 const usersRoute        = require('./routes/users');
+const jwt               = require('jsonwebtoken');
+const userModel         = require('./models/users');
+const config            = require('./config');
 
-
-
+app.set('superSecret', config.secret);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -31,6 +33,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 
+// app.get('/', (req,res) => {
+// res.send('hello people')
+
+// });
 
 
 app.use('/', homeRoute);

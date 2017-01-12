@@ -18,7 +18,6 @@ function loginUser(req, res, next) {
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         res.user = user;
-        var token = jwt.sign('user', 'climb_secret');
       }
       next();
     })
