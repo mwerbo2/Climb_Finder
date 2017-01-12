@@ -6,8 +6,19 @@ const jwt = require('jsonwebtoken');
 const salt = bcrypt.genSalt(10);
 
 
+function showAll(req, res, next) {
+  MongoClient.connect(dbConnection, function(err, db){
+    db.collection('users').find({}).toArray(function(err, docs){
+      res.climbers = docs;
+      // console.log(res.climbers)
+      next();
+    })
+  })
+};
+
+
 function loginUser(req, res, next) {
-  console.log("req.body.login", req.body)
+  // console.log("req.body.login", req.body)
   let email = req.body.email;
   let password = req.body.password;
 
@@ -18,10 +29,10 @@ function loginUser(req, res, next) {
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         res.user = user;
+        // console.log(res);
       }
       next();
     })
-
   })
 }
 
@@ -52,4 +63,4 @@ function createUser(req, res, next) {
   }
 }
 
-module.exports = { createUser, loginUser }
+module.exports = { createUser, loginUser, showAll }

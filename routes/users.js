@@ -1,10 +1,17 @@
 const router = require('express').Router();
-const { createUser, loginUser } = require('../models/users');
+const { createUser, loginUser, showAll } = require('../models/users');
 
 // router.get('/find', function(req, res){
 //   res.json(routesDataTwo)
 // })
-
+router.get('/all', showAll, (req,res)=>{
+  console.log('Show all users ');
+  // var all = res.climbers;
+  // JSON.stringify(all);
+  // console.log("my climbers: ", all)
+  res.json(res.climbers)
+  // res.send()
+})
 
 router.get('/register', function(req, res){
   console.log("got to the registration route")
@@ -31,7 +38,6 @@ router.post('/login', loginUser, function(req, res){
     if(err) throw err;
     res.redirect('/');
     console.log("req session:", req.session.user)
-    console.log(res)
   });
 });
 
