@@ -2,7 +2,9 @@ const MongoClient = require('mongodb').MongoClient;
 // const dbConnection = ('mongodb://localhost:27017/climber')
 const dbConnection = process.env['MONGODB_URI'] ||'mongodb://localhost:27017/climber'
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const salt = bcrypt.genSalt(10);
+
 
 function loginUser(req, res, next) {
   console.log("req.body.login", req.body)
@@ -16,9 +18,11 @@ function loginUser(req, res, next) {
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         res.user = user;
+        var token = jwt.sign('user', 'climb_secret');
       }
       next();
     })
+
   })
 }
 
