@@ -4,13 +4,11 @@ const { createUser, loginUser, showAll } = require('../models/users');
 // router.get('/find', function(req, res){
 //   res.json(routesDataTwo)
 // })
+
+
 router.get('/all', showAll, (req,res)=>{
   console.log('Show all users ');
-  // var all = res.climbers;
-  // JSON.stringify(all);
-  // console.log("my climbers: ", all)
   res.json(res.climbers)
-  // res.send()
 })
 
 router.get('/register', function(req, res){

@@ -10,7 +10,6 @@ function showAll(req, res, next) {
   MongoClient.connect(dbConnection, function(err, db){
     db.collection('users').find({}).toArray(function(err, docs){
       res.climbers = docs;
-      // console.log(res.climbers)
       next();
     })
   })
@@ -28,8 +27,15 @@ function loginUser(req, res, next) {
       if(user === null) {
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
+        var token = jwt.sign(user, 'superSecret', {expiresIn: 1440});
         res.user = user;
-        // console.log(res);
+        res.user.token = token;
+
+        // res.json({
+        //   success:true,
+        //   message: 'Enjoy your token',
+        //   token: token
+        // });
       }
       next();
     })
