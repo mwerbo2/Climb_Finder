@@ -3,6 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 const dbConnection = process.env['MONGODB_URI'] ||'mongodb://localhost:27017/climber'
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../config.js');
 const salt = bcrypt.genSalt(10);
 
 
@@ -17,26 +18,18 @@ function showAll(req, res, next) {
 
 
 function loginUser(req, res, next) {
-  // console.log("req.body.login", req.body)
   let email = req.body.email;
   let password = req.body.password;
-
   MongoClient.connect(dbConnection, function(err, db) {
     db.collection('users').findOne({"email": email}, function(err, user) {
       if(err) throw err;
       if(user === null) {
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
-        var token = jwt.sign(user, 'superSecret', {expiresIn: 1440});
+        // var token = jwt.sign(user, config.secret, {expiresIn: 1440});
         res.user = user;
-        res.user.token = token;
-
-        // res.json({
-        //   success:true,
-        //   message: 'Enjoy your token',
-        //   token: token
-        // });
-      }
+        // res.user.token = token;
+      };
       next();
     })
   })
