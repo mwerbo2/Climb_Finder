@@ -3,12 +3,47 @@ jQuery('#datetimepicker').datetimepicker( {
   format:'m/d/Y'
 });
 
+function isEmpty(obj) {
+          for (var key in obj) {
+            if(obj.hasOwnProperty(key))
+            return "has values";
+          }
+    return "is empty";
+  }
+
+
 $(document).ready(function() {
   const $body             = $('body');
   const $climbs           = $('<climbs>');
   const $results          = $('.results');
 
   $climbs.addClass('climbs')
+
+
+
+
+  let who;
+  var ajaxCallTwo = function() {
+    $.ajax({
+      url: '/user/who',
+      type: 'GET',
+      success: function(data){
+        who = data;
+        console.log("who front", who)
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+  };
+
+  var ajaxCallThree = $.ajax({
+      url: '/user/who',
+      type: 'GET'
+    });
+
+
+
 
 
 $('#search').click(function(){
@@ -29,12 +64,11 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      console.log("data ", data)
+      ajaxCallTwo();
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')
       let $img = $('<img src="">')
-
 
 
       $results.css('border', '');
@@ -66,7 +100,7 @@ $('#search').click(function(){
 
 
       //This feature should only be allowed for users who have logged in, but for demo purposes it's open
-      const saveClimbObj ={};
+      // const saveClimbObj ={};
       // $results.append($ul)
       // $('.favorite').click(function(event) {
       //   console.log(this);

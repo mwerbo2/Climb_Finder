@@ -21,9 +21,7 @@ module.exports = {
       }
       if ("time" in req.query) {
         filterObj['climbdate'] = new RegExp(req.query.unixTime)
-        console.log("filter obj", filterObj)
       }
-      console.log("res", res)
 
 
 

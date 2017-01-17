@@ -42,6 +42,10 @@ console.log(res.user)
   });
 
 });
+router.get('/who', function(req,res){
+  console.log('Who: ', req.session.user)
+  res.send({user: req.session.user})
+})
 
 router.delete('/logout', function(req, res){
   req.session.destroy(function(err){
