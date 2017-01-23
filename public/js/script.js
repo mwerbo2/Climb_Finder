@@ -136,7 +136,7 @@ $('#search').click(function(){
           let $peep = $('<h1>').text('Looks like no one is climbing this day.');
           let $peepTwo = $('<p style="text-align:center;">').text('Either try searching for a different day or register to post a day that you want to climb.')
           let $reg = $('<li>')
-          let $regForm = $('<form action=/user/register></form>').css('margin-left', '350px');
+          let $regForm = $('<form action=/user/profile></form>').css('margin-left', '350px');
           let $inputs = $("<input class='login' type='submit' value='Register'>")
           let $nameForm = $('<form action=/user/register></form>')
           $results.append($peep)

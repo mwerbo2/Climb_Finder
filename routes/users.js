@@ -12,13 +12,12 @@ const config = require('../config.js');
 //   var token = req.body.token || req.query.token || req.headers['x-acces-token'];
 //   // console.log()
 // })
-router.get('/poop', function(req, res, next){
+router.get('/profile', function(req, res, next){
   var sess = req.session;
-  console.log("sess", sess.user);
   if (!sess.user) {
-    res.send('Where you at?!');
+    res.redirect('/user/register');
   }else {
-  res.send('Muahahahaha')
+  res.render('profile');
   }
 })
 
