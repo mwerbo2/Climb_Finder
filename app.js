@@ -15,10 +15,10 @@ const userModel         = require('./models/users');
 const config            = require('./config');
 const tokenservice      = require('./tokenservice');
 
+
 app.set('superSecret', config.secret);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
 
 
 app.use(session({
@@ -31,6 +31,7 @@ app.use(session({
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));

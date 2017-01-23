@@ -9,7 +9,7 @@ function isEmpty(obj) {
             return "has values";
           }
     return "is empty";
-  }
+  };
 
 
 $(document).ready(function() {
@@ -32,6 +32,7 @@ $(document).ready(function() {
         console.log("who front", who)
       }
     })
+    .done
     .fail(function() {
       console.log("error");
     })
@@ -64,7 +65,7 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      ajaxCallTwo();
+      // ajaxCallTwo();
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')

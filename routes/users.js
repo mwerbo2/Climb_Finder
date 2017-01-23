@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const session           = require('express-session');
 const { createUser, loginUser, showAll } = require('../models/users');
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
@@ -11,6 +12,17 @@ const config = require('../config.js');
 //   var token = req.body.token || req.query.token || req.headers['x-acces-token'];
 //   // console.log()
 // })
+router.get('/poop', function(req, res, next){
+  var sess = req.session;
+  console.log("sess", sess.user);
+  if (!sess.user) {
+    res.send('Where you at?!');
+  }else {
+  res.send('Muahahahaha')
+  }
+})
+
+
 router.get('/all', showAll, (req,res)=>{
   console.log('Show all users ');
   res.json(res.climbers)
