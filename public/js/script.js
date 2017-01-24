@@ -130,7 +130,7 @@ $('#search').click(function(){
       // console.log(er)
     },
     complete: function(com){
-      console.log(com);
+      console.log("com", com);
       if (com.responseText === "[]" ) {
         $results.css('border', 'solid');
           let $peep = $('<h1>').text('Looks like no one is climbing this day.');
