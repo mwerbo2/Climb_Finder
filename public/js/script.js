@@ -2,6 +2,11 @@ jQuery('#datetimepicker').datetimepicker( {
   timepicker:false,
   format:'m/d/Y'
 });
+jQuery('#datetimepicker2').datetimepicker({
+  datepicker: false,
+  formatTime:'h:i A',
+  format: 'h:i A'
+})
 
 function isEmpty(obj) {
           for (var key in obj) {

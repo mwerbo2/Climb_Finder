@@ -20,6 +20,10 @@ input.login {
 #middle {
   background-color: #E5E5E5;
 }
+.midd {
+  height: 40vh;
+  width: 100%;
+}
 .climb {
   background-color: white;
   border: solid 1px grey;
@@ -78,6 +82,14 @@ li {
   background-image: url("https://holawallpaper.com/images/pictures/2016/02/original/rock-climbing-hd.jpg");
   background-size: cover;
   height: 50vh;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+#topprofile {
+  width: 100%;
+  background-image: url("https://holawallpaper.com/images/pictures/2016/02/original/rock-climbing-hd.jpg");
+  background-size: cover;
+  height: 30vh;
   margin: 0 auto;
   padding-top: 30px;
 }
