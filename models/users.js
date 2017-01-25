@@ -43,16 +43,33 @@ function createSecure(email, password, callback) {
   })
 }
 function postClimb(req, res, next){
-  console.log('getting to model', req.body)
-  function climbPost() {
+  // console.log('getting to model', req.body)
+  console.log("email ", req.session.user.email)
+  let email = req.session.user.email;
     MongoClient.connect(dbConnection, function(err, db){
-      let climbInfo = {
+      console.log('fired post')
+      db.collection('users').findOne({"email": email}, function(err, user){
+        if(err) throw err;
+        if (user === null) {
+          res.status(404)
+        } else {
+          db.collection('users').update(
+            { email: user.email},
 
-      }
+            { climblocation: req.body.climblocation,
+              climbdate: req.body.uniTimes,
+              climbday: req.body.climbdate,
+              climbtype: req.body.climbtype,
+              climbrate: req.body.climbrate
+            }
+          )
+        }
+      })
+      next();
     })
-  }
-  next();
 }
+
+
 function createUser(req, res, next) {
   createSecure( req.body.email, req.body.password, saveUser)
   console.log("creating user: ", req.body);
@@ -66,6 +83,7 @@ function createUser(req, res, next) {
         level: req.body.level
       }
       db.collection('users').insertOne(userInfo, function(err, results) {
+        console.log('saved user function')
         if(err) throw err;
         next();
       });
