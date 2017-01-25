@@ -14,11 +14,12 @@ const config = require('../config.js');
 // })
 router.get('/profile', function(req, res, next){
   var sess = req.session;
-  if (!sess.user) {
-    res.redirect('/user/register');
-  }else {
-  res.render('profile');
-  }
+  // if (!sess.user) {
+  //   res.redirect('/user/register');
+  // }else {
+  // res.render('profile');
+  // }
+  res.render('profile')
 })
 
 
