@@ -23,9 +23,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(session({
   saveUnitialized:true,
-  resave: true,
+  resave: false,
   secret: 'secrectsecret',
-  cookie: {maxAge: 60000}
+  cookie: {maxAge: 6000000}
 }));
 
 

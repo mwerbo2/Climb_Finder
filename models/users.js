@@ -42,6 +42,17 @@ function createSecure(email, password, callback) {
     })
   })
 }
+function postClimb(req, res, next){
+  console.log('getting to model', req.body)
+  function climbPost() {
+    MongoClient.connect(dbConnection, function(err, db){
+      let climbInfo = {
+
+      }
+    })
+  }
+  next();
+}
 function createUser(req, res, next) {
   createSecure( req.body.email, req.body.password, saveUser)
   console.log("creating user: ", req.body);
@@ -62,4 +73,4 @@ function createUser(req, res, next) {
   }
 }
 
-module.exports = { createUser, loginUser, showAll }
+module.exports = { createUser, loginUser, showAll, postClimb }

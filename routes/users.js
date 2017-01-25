@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const session           = require('express-session');
-const { createUser, loginUser, showAll } = require('../models/users');
+const { createUser, loginUser, showAll, postClimb } = require('../models/users');
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
 
@@ -57,6 +57,12 @@ console.log(res.user)
 router.get('/who', function(req,res){
   console.log('Who: ', req.session.user)
   res.send({user: req.session.user})
+})
+
+router.post('/postClimb', postClimb, function(req, res, next){
+  console.log('Router to post climb')
+  console.log(req.session.user);
+  res.redirect('/')
 })
 
 router.delete('/logout', function(req, res){

@@ -27,26 +27,69 @@ $(document).ready(function() {
 
 
 
-  let who;
-  var ajaxCallTwo = function() {
-    $.ajax({
-      url: '/user/who',
-      type: 'GET',
-      success: function(data){
-        who = data;
-        console.log("who front", who)
-      }
-    })
-    .done
-    .fail(function() {
-      console.log("error");
-    })
-  };
+  // let who;
+  // var ajaxCallTwo = function() {
+  //   $.ajax({
+  //     url: '/user/who',
+  //     type: 'GET',
+  //     success: function(data){
+  //       who = data;
+  //       console.log("who front", who)
+  //     }
+  //   })
+  //   .done
+  //   .fail(function() {
+  //     console.log("error");
+  //   })
+  // };
 
-  var ajaxCallThree = $.ajax({
-      url: '/user/who',
-      type: 'GET'
-    });
+  // var ajaxCallThree = $.ajax({
+  //     url: '/user/who',
+  //     type: 'GET'
+  //   });
+$('#createclimb').click(function(){
+
+  const climbPost = {};
+  var locat   = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
+  var date    = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
+  var uniTime = date.getTime();
+  var time    = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
+  var type    = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
+  var rate    = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
+
+  if (locat !== '')
+    {climbPost.climblocation = locat;
+    climbPost.uniTimes = uniTime};
+  if (date !== '')
+    {climbPost.climbdate = date};
+  if (time !== '')
+    {climbPost.climbtime = time};
+  if (type !== '')
+    {climbPost.climbtype = type};
+  if (rate !== '')
+    {climbPost.climbrate = rate};
+
+console.log(climbPost)
+
+$.ajax({
+  url: '/user/postClimb',
+  type: 'POST',
+  dataType: 'json',
+  data: climbPost,
+})
+.done(function() {
+  console.log("success");
+})
+.fail(function(err) {
+  console.log("error", err);
+})
+.always(function() {
+  console.log("complete");
+});
+
+})
+
+
 
 
 
@@ -59,6 +102,7 @@ $('#search').click(function(){
   if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
   queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
   queryObject.unixTime = queryObject.time.getTime();
+
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
 
   console.log(queryObject)
