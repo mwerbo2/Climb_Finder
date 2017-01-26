@@ -119,6 +119,7 @@ $('#search').click(function(){
       let $ul = $('<ul>')
       let $p = $('<p>')
       let $img = $('<img src="">')
+      let $moreButton = $('<button>').text('Post a Climb')
 
 
       $results.css('border', '');
@@ -143,6 +144,7 @@ $('#search').click(function(){
         // $li.append("Where: " + data[i].climblocation).append($save).append("<br>").css('border', 'solid');
         // $ul.append($li)
         $results.append($diver);
+        $results.append($moreButton)
       }
 
 

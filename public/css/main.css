@@ -1,6 +1,6 @@
 body {
-background-color: #FFFFFF;
-margin: 0;
+  background-color: #FFFFFF;
+  margin: 0;
 }
 .container {
     width: 100%;
@@ -21,7 +21,7 @@ input.login {
   background-color: #E5E5E5;
 }
 .midd {
-  height: 40vh;
+  height: 55vh;
   width: 100%;
 }
 .climb {
@@ -48,7 +48,7 @@ h3 {
 h5 {
   text-align: center;
 }
-footer {
+/*footer {
   position:absolute;
   bottom:0;
   height: 11vh;
@@ -57,7 +57,7 @@ footer {
   background-color: #0f1721;
   font: white;
   text-align: center;
-}
+}*/
 .gobble {
   margin: 5px;
   border: solid black 1px;
@@ -81,7 +81,7 @@ li {
   width: 100%;
   background-image: url("https://holawallpaper.com/images/pictures/2016/02/original/rock-climbing-hd.jpg");
   background-size: cover;
-  height: 50vh;
+  height: 40vh;
   margin: 0 auto;
   padding-top: 30px;
 }
@@ -123,5 +123,29 @@ form {
 }
 #bottom {
   position: relative;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+  background-color: #E5E5E5;
+}
+.footer, .push {
+  height: 5em;
+  background-color: #0f1721;
+  font: white;
+  text-align: center;
+}
+
+.push {
+  background-color: #E5E5E5;
 }
 
