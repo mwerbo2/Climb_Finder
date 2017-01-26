@@ -54,13 +54,15 @@ function postClimb(req, res, next){
           res.status(404)
         } else {
           db.collection('users').update(
-            { email: user.email},
-
-            { climblocation: req.body.climblocation,
+            { "email": email},
+            { $set: { climblocation: req.body.climblocation,
               climbdate: req.body.uniTimes,
               climbday: req.body.climbdate,
               climbtype: req.body.climbtype,
               climbrate: req.body.climbrate
+            }},
+            {
+
             }
           )
         }
