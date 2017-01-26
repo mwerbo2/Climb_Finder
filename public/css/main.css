@@ -124,6 +124,10 @@ form {
 #bottom {
   position: relative;
 }
+p {
+  margin-left: 15px;
+  margin-bottom: .5em;
+}
 
 * {
   margin: 0;

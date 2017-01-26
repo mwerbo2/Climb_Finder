@@ -114,12 +114,18 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      // ajaxCallTwo();
+      console.log(data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')
       let $img = $('<img src="">')
-      let $moreButton = $('<button>').text('Post a Climb')
+      let $moreButton = $('<form action="user/profile">')
+      let $input = $('<input type="submit" value="Post a Climb">')
+      let $moreText = $('<p>').text("Still can't find the right climbing partner? \n Post a climb yourself.");
+      let $belayButton = $('<form action="user/belay">')
+      let $belayInput = $('<input action="Post" type="submit" value="Connect">')
+
+
 
 
       $results.css('border', '');
@@ -129,12 +135,20 @@ $('#search').click(function(){
           'font-size': '25px',
           'margin': '5px 0 0 10px'
         });;
-        let $p2 = $('<p>').text(data[i].climblocation);
-        let $connect = $('<button>').text('Connect');
+        let $belayButton = $('<form method="Post" action="user/belay">')
+        let $belayInput = $('<input type="submit" value="Connect">')
+        let $p2 = $('<p>').text(data[i].level);
+        let $p3 = $('<p>').text(data[i].climbtype);
+        let $p4 = $('<p>').text(data[i].climbrate);
+        // let $connect = $('<button>').text('Connect');
 
-
+        $belayButton.append($belayInput)
         $diver.append($p1);
         $diver.append($p2);
+        $diver.append($p3);
+        $diver.append($p4);
+        $diver.append($belayButton)
+        // let $connect = $('<button>').text('Connect');
         // $diver.append($connect)
         // let $li = $('<li class="gobble">');
         // // $li.attr('data-climbId', data[i].fname);
@@ -144,6 +158,8 @@ $('#search').click(function(){
         // $li.append("Where: " + data[i].climblocation).append($save).append("<br>").css('border', 'solid');
         // $ul.append($li)
         $results.append($diver);
+        $moreButton.append($input)
+        $results.append($moreText);
         $results.append($moreButton)
       }
 

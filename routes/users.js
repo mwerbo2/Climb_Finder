@@ -14,12 +14,11 @@ const config = require('../config.js');
 // })
 router.get('/profile', function(req, res, next){
   var sess = req.session;
-  // if (!sess.user) {
-  //   res.redirect('/user/register');
-  // }else {
-  // res.render('profile');
-  // }
-  res.render('profile')
+  if (!sess.user) {
+    res.redirect('/user/register');
+  }else {
+  res.render('profile');
+  }
 })
 
 
@@ -35,7 +34,7 @@ router.get('/register', function(req, res){
 
 router.post('/register', createUser, function(req, res){
   console.log("req.body", req.body);
-  res.redirect('/')
+  res.redirect('/user/profile')
 })
 
 
@@ -50,7 +49,7 @@ router.post('/loginuser', loginUser, function(req, res){
 console.log(res.user)
   req.session.save(function(err){
     if(err) throw err;
-    res.redirect('/');
+    res.redirect('/user/profile');
   });
 
 });
@@ -60,9 +59,11 @@ router.get('/who', function(req,res){
 })
 
 router.post('/postClimb', postClimb, function(req, res, next){
-  console.log('Router to post climb')
-  console.log(req.session.user);
   res.redirect('/')
+})
+
+router.post('/belay', function(req, res, next){
+  console.log('hi')
 })
 
 router.delete('/logout', function(req, res){

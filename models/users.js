@@ -60,14 +60,12 @@ function postClimb(req, res, next){
               climbday: req.body.climbdate,
               climbtype: req.body.climbtype,
               climbrate: req.body.climbrate
-            }},
-            {
-
-            }
+            }}
           )
         }
+        next();
       })
-      next();
+
     })
 }
 
