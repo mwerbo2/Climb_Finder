@@ -69,44 +69,35 @@ $('#createclimb').click(function(){
   if (rate !== '')
     {climbPost.climbrate = rate};
 
-console.log(climbPost)
 
-$.ajax({
-  url: '/user/postClimb',
-  type: 'POST',
-  dataType: 'json',
-  data: climbPost,
+  $.ajax({
+    url: '/user/postClimb',
+    type: 'POST',
+    dataType: 'json',
+    data: climbPost,
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function(err) {
+    console.log("error", err);
+  })
+  .always(function() {
+    console.log("complete");
+  });
+
 })
-.done(function() {
-  console.log("success");
-})
-.fail(function(err) {
-  console.log("error", err);
-})
-.always(function() {
-  console.log("complete");
-});
-
-})
-
-
-
-
-
 
 
 $('#search').click(function(){
-
   $results.empty();
   const queryObject = {};
+
   if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
   queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
   queryObject.unixTime = queryObject.time.getTime();
 
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-
-  console.log(queryObject)
-  // console.log("Query time", queryObject.time.getTime(), " location ", queryObject.climblocation);
 
   $.ajax({
     url: '/climbs/',
@@ -114,7 +105,7 @@ $('#search').click(function(){
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      console.log(data)
+
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')
@@ -122,32 +113,28 @@ $('#search').click(function(){
       let $moreButton = $('<form action="user/profile">')
       let $input = $('<input type="submit" value="Post a Climb">')
       let $moreText = $('<p>').text("Still can't find the right climbing partner? \n Post a climb yourself.");
-      let $belayButton = $('<form action="user/belay">')
-      let $belayInput = $('<input action="Post" type="submit" value="Connect">')
-
-
-
-
       $results.css('border', '');
+
       for (var i = 0; i < data.length; i++) {
-        let $diver = $('<div class="climb">')
+        let $diver = $('<div class="climb">').attr('id', data[i].email);
         let $p1 = $('<p>').text(data[i].fname +" " + data[i].lname).css({
           'font-size': '25px',
           'margin': '5px 0 0 10px'
         });;
-        let $belayButton = $('<form method="Post" action="user/belay">')
-        let $belayInput = $('<input type="submit" value="Connect">')
+        // let $belayButton = $('<form method="Post" action="user/belay">')
+        // let $belayInput = $('<input class="belay" type="submit" value="Connect">')
+        let $bb = $('<button class="belay">').text('Connect');
         let $p2 = $('<p>').text(data[i].level);
         let $p3 = $('<p>').text(data[i].climbtype);
         let $p4 = $('<p>').text(data[i].climbrate);
-        // let $connect = $('<button>').text('Connect');
 
-        $belayButton.append($belayInput)
+
+        // $belayButton.append($belayInput)
         $diver.append($p1);
         $diver.append($p2);
         $diver.append($p3);
         $diver.append($p4);
-        $diver.append($belayButton)
+        $diver.append($bb)
         // let $connect = $('<button>').text('Connect');
         // $diver.append($connect)
         // let $li = $('<li class="gobble">');
@@ -161,37 +148,14 @@ $('#search').click(function(){
         $moreButton.append($input)
         $results.append($moreText);
         $results.append($moreButton)
+
+//         $('.belay').on('click', function(event) {
+//   event.preventDefault();
+//   console.log(event)
+
+// });
       }
 
-
-
-
-
-      //This feature should only be allowed for users who have logged in, but for demo purposes it's open
-      // const saveClimbObj ={};
-      // $results.append($ul)
-      // $('.favorite').click(function(event) {
-      //   console.log(this);
-      //   console.log($(this).parent().data('climbid'));
-      //   saveClimbObj.id = $(this).parent().data('climbid');
-      //   console.log(saveClimbObj)
-
-      //   $.ajax({
-      //     url: '/climbs/favorites',
-      //     type: 'POST',
-      //     dataType: 'json',
-      //     data: saveClimbObj,
-      //   })
-      //   .done(function() {
-      //     console.log("successfully saved");
-      //   })
-      //   .fail(function() {
-      //     console.log("error");
-      //   })
-      //   .always(function() {
-      //     console.log("completed save");
-      //   });
-      // })
     },
     error: function(er) {
       // console.log(er)
@@ -215,6 +179,9 @@ $('#search').click(function(){
     }
   })
 })
+
+
+
 
 
 
