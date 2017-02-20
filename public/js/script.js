@@ -88,6 +88,10 @@ $('#createclimb').click(function(){
 
 })
 
+$('.belay').click(function(){
+  console.log('hoooooahh')
+})
+
 
 $('#search').click(function(){
   $results.empty();
@@ -98,6 +102,9 @@ $('#search').click(function(){
   queryObject.unixTime = queryObject.time.getTime();
 
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
+
+
+
 
   $.ajax({
     url: '/climbs/',
@@ -149,11 +156,11 @@ $('#search').click(function(){
         $results.append($moreText);
         $results.append($moreButton)
 
-//         $('.belay').on('click', function(event) {
-//   event.preventDefault();
-//   console.log(event)
+        $('.belay').on('click', function(event) {
+  event.preventDefault();
+  console.log(event)
 
-// });
+});
       }
 
     },
