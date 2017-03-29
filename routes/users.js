@@ -15,10 +15,10 @@ const config = require('../config.js');
 router.get('/profile', function(req, res, next){
   var sess = req.session;
   if (!sess.user) {
-    res.redirect('/user/register');
-  }else {
+    res.redirect('/user/register')
+  } else {
   res.render('profile');
-  }
+  };
 })
 
 
@@ -45,11 +45,18 @@ router.get('/login', function(req, res){
 
 router.post('/loginuser', loginUser, function(req, res){
   // var token = jwt.sign(res.user, config.secret, {expiresIn: 1440});
-  req.session.user = res.user;
-console.log(res.user)
+  console.log(res.statusCode)
+  if (res.statusCode === 401) {
+    res.json({loginSuccess: false})
+    // .redirect('/user/profile')
+  } else {
+    res.status(200);
+    res.redirect('/user/profile')
+    req.session.user = res.user;
+  }
   req.session.save(function(err){
     if(err) throw err;
-    res.redirect('/user/profile');
+    // res.redirect('/user/profile');
   });
 
 });
@@ -59,6 +66,8 @@ router.get('/who', function(req,res){
 })
 
 router.post('/postClimb', postClimb, function(req, res, next){
+  console.log(res.statusCode)
+  console.log("made it to next post climb")
   res.redirect('/')
 })
 
@@ -68,7 +77,7 @@ router.post('/belay', function(req, res, next){
 
 router.delete('/logout', function(req, res){
   req.session.destroy(function(err){
-    res.redirect('/')
+  res.redirect('/')
   });
 });
 

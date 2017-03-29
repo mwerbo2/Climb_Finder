@@ -24,6 +24,7 @@ function loginUser(req, res, next) {
     db.collection('users').findOne({"email": email}, function(err, user) {
       if(err) throw err;
       if(user === null) {
+        res.status(401)
         console.log("User does not exist");
       } else if(bcrypt.compareSync(password, user.passwordDigest)){
         // var token = jwt.sign(user, config.secret, {expiresIn: 1440});
@@ -44,7 +45,7 @@ function createSecure(email, password, callback) {
 }
 function postClimb(req, res, next){
   // console.log('getting to model', req.body)
-  console.log("email ", req.session.user.email)
+  // console.log("email ", req.session.user.email)
   let email = req.session.user.email;
     MongoClient.connect(dbConnection, function(err, db){
       console.log('fired post')
@@ -62,6 +63,7 @@ function postClimb(req, res, next){
               climbrate: req.body.climbrate
             }}
           )
+          res.status(200);
         }
         next();
       })

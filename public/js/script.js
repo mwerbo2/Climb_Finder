@@ -21,32 +21,12 @@ $(document).ready(function() {
   const $body             = $('body');
   const $climbs           = $('<climbs>');
   const $results          = $('.results');
-
   $climbs.addClass('climbs')
 
 
 
 
-  // let who;
-  // var ajaxCallTwo = function() {
-  //   $.ajax({
-  //     url: '/user/who',
-  //     type: 'GET',
-  //     success: function(data){
-  //       who = data;
-  //       console.log("who front", who)
-  //     }
-  //   })
-  //   .done
-  //   .fail(function() {
-  //     console.log("error");
-  //   })
-  // };
 
-  // var ajaxCallThree = $.ajax({
-  //     url: '/user/who',
-  //     type: 'GET'
-  //   });
 $('#createclimb').click(function(){
 
   const climbPost = {};
@@ -157,11 +137,11 @@ $('#search').click(function(){
         $results.append($moreButton)
 
         $('.belay').on('click', function(event) {
-  event.preventDefault();
-  console.log(event)
+          event.preventDefault();
+          console.log(event)
 
-});
-      }
+        });
+    }
 
     },
     error: function(er) {
@@ -182,7 +162,6 @@ $('#search').click(function(){
           $regForm.append($inputs)
           $results.append($regForm)
       }
-
     }
   })
 })
