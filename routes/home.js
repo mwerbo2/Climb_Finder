@@ -5,6 +5,7 @@ const routesData = require('../routelist.json')
 
 router.get('/', function(req, res){
   res.render('home', {user: req.session.user});
+  console.log(req.session.user)
 })
 
 // router.get('/all', function(req, res){
