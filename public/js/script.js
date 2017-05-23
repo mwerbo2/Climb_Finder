@@ -1,7 +1,10 @@
-jQuery('#datetimepicker').datetimepicker( {
-  timepicker:false,
-  format:'m/d/Y'
-});
+// jQuery('#datetimepicker').datetimepicker( {
+//   timepicker:false,
+//   format:'m/d/Y'
+// });
+
+jQuery('#datetimepicker').datetimepicker();
+
 jQuery('#datetimepicker2').datetimepicker({
   datepicker: false,
   formatTime:'h:i A',
@@ -23,34 +26,36 @@ $(document).ready(function() {
   const $results          = $('.results');
   $climbs.addClass('climbs')
 
-
+jQuery('#datetimepicker').datetimepicker();
 
 
 
 $('#createclimb').click(function(){
 
+
   const climbPost = {};
   var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-  var date     $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
+  var climbDate   = $("#datetimepicker").datetimepicker('getValue')
   var uniTime     = date.getTime();
   var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
   var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
   var rate        = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
   var aboutTest   = document.getElementById("aboutme").value;
   console.log(aboutTest)
+  console.log(date)
 
   if (locat !== '')
     {climbPost.climblocation = locat;
     climbPost.uniTimes = uniTime};
-  if (date !== '')
-    {climbPost.climbdate = date};
+  if (climbDate !== '')
+    {climbPost.climbdate = climbDate};
   if (time !== '')
     {climbPost.climbtime = time};
   if (type !== '')
     {climbPost.climbtype = type};
   if (rate !== '')
     {climbPost.climbrate = rate};
-  if ()
+
 
 
   $.ajax({
