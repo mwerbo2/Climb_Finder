@@ -1,9 +1,7 @@
-// jQuery('#datetimepicker').datetimepicker( {
-//   timepicker:false,
-//   format:'m/d/Y'
-// });
-
-jQuery('#datetimepicker').datetimepicker();
+jQuery('#datetimepicker').datetimepicker( {
+  timepicker:false,
+  format:'m/d/Y'
+});
 
 jQuery('#datetimepicker2').datetimepicker({
   datepicker: false,
@@ -26,7 +24,6 @@ $(document).ready(function() {
   const $results          = $('.results');
   $climbs.addClass('climbs')
 
-jQuery('#datetimepicker').datetimepicker();
 
 
 
@@ -35,7 +32,10 @@ $('#createclimb').click(function(){
 
   const climbPost = {};
   var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-  var climbDate   = $("#datetimepicker").datetimepicker('getValue')
+  // var climbDate   = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
+  // var climbd      = $("#datetimepicker").datetimepicker('getValue');
+  var cl          = $("#datetimepicker")[0].value;
+  console.log(cl)
   var uniTime     = date.getTime();
   var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
   var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
@@ -55,7 +55,7 @@ $('#createclimb').click(function(){
     {climbPost.climbtype = type};
   if (rate !== '')
     {climbPost.climbrate = rate};
-
+s
 
 
   $.ajax({
@@ -85,9 +85,10 @@ $('#search').click(function(){
   $results.empty();
   const queryObject = {};
 
-  if (queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue() !== '')
-  queryObject.time = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
-  queryObject.unixTime = queryObject.time.getTime();
+  if (queryObject.time = $("#datetimepicker")[0].value !== '')
+  queryObject.time = $("#datetimepicker")[0].value;
+console.log(queryObject)
+  // queryObject.unixTime = queryObject.time.getTime();
 
   if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
 
