@@ -1,7 +1,8 @@
-jQuery('#datetimepicker').datetimepicker( {
+$('#datetimepickers').datetimepicker({
   timepicker:false,
   format:'m/d/Y'
 });
+
 
 jQuery('#datetimepicker2').datetimepicker({
   datepicker: false,
@@ -9,30 +10,22 @@ jQuery('#datetimepicker2').datetimepicker({
   format: 'h:i A'
 })
 
-function isEmpty(obj) {
-          for (var key in obj) {
-            if(obj.hasOwnProperty(key))
-            return "has values";
-          }
-    return "is empty";
-  };
 
 
 $(document).ready(function() {
   const $body             = $('body');
   const $climbs           = $('<climbs>');
   const $results          = $('.results');
+
   $climbs.addClass('climbs')
-
-
-
-
+//Event handler for submitting post
 $('#createclimb').click(function(){
 
 
   const climbPost = {};
   var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-  // var climbDate   = $("#datetimepicker").data("xdsoft_datetimepicker").getValue();
+  var climbDate   = $("#datetimepickers").data("xdsoft_datetimepicker").getValue();
+  console.log("date ", climbDate)
   // var climbd      = $("#datetimepicker").datetimepicker('getValue');
   var cl          = $("#datetimepicker")[0].value;
   console.log(cl)
@@ -55,7 +48,6 @@ $('#createclimb').click(function(){
     {climbPost.climbtype = type};
   if (rate !== '')
     {climbPost.climbrate = rate};
-s
 
 
   $.ajax({
@@ -76,17 +68,18 @@ s
 
 })
 
-$('.belay').click(function(){
-  console.log('hoooooahh')
-})
+
 
 
 $('#search').click(function(){
   $results.empty();
+  var f = $('#datetimepickers').datetimepicker('getValue');
+  console.log(f);
   const queryObject = {};
-
-  if (queryObject.time = $("#datetimepicker")[0].value !== '')
-  queryObject.time = $("#datetimepicker")[0].value;
+var climbd      = $("#datetimepickers").datetimepicker('getValue');
+// console.log("ojbectedd", climbd.getDay())
+  // if (queryObject.time = $("#datetimepicker")[0].value !== '')
+  // queryObject.time = $("#datetimepicker")[0].value;
 console.log(queryObject)
   // queryObject.unixTime = queryObject.time.getTime();
 

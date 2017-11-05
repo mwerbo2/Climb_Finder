@@ -13,7 +13,7 @@ const usersRoute        = require('./routes/users');
 const jwt               = require('jsonwebtoken');
 const userModel         = require('./models/users');
 const config            = require('./config');
-const tokenservice      = require('./tokenservice');
+// const tokenservice      = require('./tokenservice');
 
 
 app.set('superSecret', config.secret);
