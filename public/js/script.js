@@ -11,17 +11,15 @@ jQuery('#datetimepicker2').datetimepicker({
 })
 
 
-
 $(document).ready(function() {
   const $body             = $('body');
   const $climbs           = $('<climbs>');
   const $results          = $('.results');
 
   $climbs.addClass('climbs')
+
 //Event handler for submitting post
 $('#createclimb').click(function(){
-
-
   const climbPost = {};
   var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
   var climbDate   = $("#datetimepickers").data("xdsoft_datetimepicker").getValue();
