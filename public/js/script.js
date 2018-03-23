@@ -25,19 +25,19 @@ $('#createclimb').click(function(){
   var climbDate   = $("#datetimepickers").data("xdsoft_datetimepicker").getValue();
   console.log("date ", climbDate)
   // var climbd      = $("#datetimepicker").datetimepicker('getValue');
-  var cl          = $("#datetimepicker")[0].value;
-  console.log(cl)
-  var uniTime     = date.getTime();
+  // var cl          = $("#datetimepicker")[0].value;
+  // console.log(cl)
+  // var uniTime     = date.getTime();
   var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
   var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
   var rate        = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
   var aboutTest   = document.getElementById("aboutme").value;
   console.log(aboutTest)
-  console.log(date)
+  // console.log(date)
 
   if (locat !== '')
-    {climbPost.climblocation = locat;
-    climbPost.uniTimes = uniTime};
+    {climbPost.climblocation = locat};
+    // climbPost.uniTimes = uniTime};
   if (climbDate !== '')
     {climbPost.climbdate = climbDate};
   if (time !== '')
