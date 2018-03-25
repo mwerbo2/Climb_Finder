@@ -20,9 +20,6 @@ $('#datetimepickers').datetimepicker({
 
   $climbs.addClass('climbs')
 
-<<<<<<< HEAD
-//Event handler for searching for climbers
-=======
 //Event handler for submitting post
 $('#createclimb').click(function(){
   const climbPost = {};
@@ -74,7 +71,6 @@ $('#createclimb').click(function(){
 
 
 
->>>>>>> 70fbc1e6de793c0c1144dd2753fa8cbf0cbbb4cb
 $('#search').click(function(){
   $results.empty();
   let queryObject = {};

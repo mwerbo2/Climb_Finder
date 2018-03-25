@@ -68,7 +68,7 @@ router.get('/who', function(req,res){
 router.post('/postClimb', postClimb, function(req, res, next){
   // console.log(res.statusCode)
   console.log("made it to next post climb")
-  res.status(200).redirect('/')
+  res.status(200)
 })
 
 router.post('/belay', function(req, res, next){
