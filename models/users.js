@@ -47,6 +47,7 @@ function postClimb(req, res, next){
   // console.log('getting to model', req.body)
   // console.log("email ", req.session.user.email)
   let email = req.session.user.email;
+  console.log(req.body)
     MongoClient.connect(dbConnection, function(err, db){
       console.log('fired post')
       db.collection('users').findOne({"email": email}, function(err, user){

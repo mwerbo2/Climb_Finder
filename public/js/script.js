@@ -1,90 +1,37 @@
+$(document).ready(function() {
+
 $('#datetimepickers').datetimepicker({
   timepicker:false,
   format:'m/d/Y'
 });
 
 
-jQuery('#datetimepicker2').datetimepicker({
-  datepicker: false,
-  formatTime:'h:i A',
-  format: 'h:i A'
-})
+// jQuery('#datetimepicker2').datetimepicker({
+//   datepicker: false,
+//   formatTime:'h:i A',
+//   format: 'h:i A'
+// })
 
 
-$(document).ready(function() {
+
   const $body             = $('body');
   const $climbs           = $('<climbs>');
   const $results          = $('.results');
 
   $climbs.addClass('climbs')
 
-//Event handler for submitting post
-$('#createclimb').click(function(){
-  const climbPost = {};
-  var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-  var climbDate   = $("#datetimepickers").data("xdsoft_datetimepicker").getValue();
-  console.log("date ", climbDate)
-  // var climbd      = $("#datetimepicker").datetimepicker('getValue');
-  var cl          = $("#datetimepicker")[0].value;
-  console.log(cl)
-  var uniTime     = date.getTime();
-  var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
-  var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
-  var rate        = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
-  var aboutTest   = document.getElementById("aboutme").value;
-  console.log(aboutTest)
-  console.log(date)
-
-  if (locat !== '')
-    {climbPost.climblocation = locat;
-    climbPost.uniTimes = uniTime};
-  if (climbDate !== '')
-    {climbPost.climbdate = climbDate};
-  if (time !== '')
-    {climbPost.climbtime = time};
-  if (type !== '')
-    {climbPost.climbtype = type};
-  if (rate !== '')
-    {climbPost.climbrate = rate};
-
-
-  $.ajax({
-    url: '/user/postClimb',
-    type: 'POST',
-    dataType: 'json',
-    data: climbPost,
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function(err) {
-    console.log("error", err);
-  })
-  .always(function() {
-    console.log("complete");
-  });
-
-})
-
-
-
-
+//Event handler for searching for climbers
 $('#search').click(function(){
   $results.empty();
-  var f = $('#datetimepickers').datetimepicker('getValue');
-  console.log(f);
-  const queryObject = {};
-var climbd      = $("#datetimepickers").datetimepicker('getValue');
-// console.log("ojbectedd", climbd.getDay())
-  // if (queryObject.time = $("#datetimepicker")[0].value !== '')
-  // queryObject.time = $("#datetimepicker")[0].value;
-console.log(queryObject)
-  // queryObject.unixTime = queryObject.time.getTime();
+  let queryObject = {};
+  let climbd = $("#datetimepickers").datetimepicker('getValue');
+  console.log(climbd.getTime());
+  let loc = document.getElementById("location").options[document.getElementById("location").selectedIndex].value
 
-  if (document.getElementById("location").options[document.getElementById("location").selectedIndex].value !== '') queryObject.climblocation = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
-
-
-
+  if (queryObject.time !== '' & queryObject.climbLocation !== '') {
+    queryObject.time = climbd;
+    queryObject.climbLocation = loc;
+  }
 
   $.ajax({
     url: '/climbs/',
@@ -92,7 +39,7 @@ console.log(queryObject)
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-
+      console.log(data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')
@@ -102,7 +49,7 @@ console.log(queryObject)
       let $moreText = $('<p>').text("Still can't find the right climbing partner? \n Post a climb yourself.");
       $results.css('border', '');
 
-      for (var i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         let $diver = $('<div class="climb">').attr('id', data[i].email);
         let $p1 = $('<p>').text(data[i].fname +" " + data[i].lname).css({
           'font-size': '25px',
@@ -139,7 +86,6 @@ console.log(queryObject)
         $('.belay').on('click', function(event) {
           event.preventDefault();
           console.log(event)
-
         });
     }
 
@@ -164,6 +110,44 @@ console.log(queryObject)
       }
     }
   })
+})
+
+//Event handler for submitting climb post from profile
+$('#createclimb').click(function(){
+  const climbPost = {};
+  var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
+  let climbDate   = $("#datetimepickers").datetimepicker('getValue');
+  var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
+  var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
+  var rate        = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
+  var aboutText   = document.getElementById("aboutme").value;
+  
+  
+  
+  if (locat !== '')
+    {climbPost.climblocation = locat};
+  if (climbDate !== '')
+    {climbPost.climbdate = climbDate};
+  if (time !== '')
+    {climbPost.climbtime = time};
+  if (type !== '')
+    {climbPost.climbtype = type};
+  if (rate !== '')
+    {climbPost.climbrate = rate};
+  if (aboutText !== "")
+    {climbPost.climbAbout = aboutText} 
+
+  $.ajax({
+    url: '/user/postClimb',
+    type: 'POST',
+    dataType: 'json',
+    data: climbPost,
+  })
+  .done(function() {
+    console.log("success");
+    alert("posted")
+  })
+
 })
 
 

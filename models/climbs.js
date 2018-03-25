@@ -6,6 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 module.exports = {
   searchRoutes: function(req,res,next){
+    console.log(req.body)
       const filterObj = {};
       // if('location' in req.query.location){
       //   filterObj['location'] = new RegExp('^' + req.query.location, 'i')
