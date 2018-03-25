@@ -20,7 +20,61 @@ $('#datetimepickers').datetimepicker({
 
   $climbs.addClass('climbs')
 
+<<<<<<< HEAD
 //Event handler for searching for climbers
+=======
+//Event handler for submitting post
+$('#createclimb').click(function(){
+  const climbPost = {};
+  var locat       = document.getElementById("location").options[document.getElementById("location").selectedIndex].value;
+  var climbDate   = $("#datetimepickers").data("xdsoft_datetimepicker").getValue();
+  console.log("date ", climbDate)
+  // var climbd      = $("#datetimepicker").datetimepicker('getValue');
+  // var cl          = $("#datetimepicker")[0].value;
+  // console.log(cl)
+  // var uniTime     = date.getTime();
+  var time        = document.getElementById("time").options[document.getElementById("time").selectedIndex].value;
+  var type        = document.getElementById("type").options[document.getElementById("type").selectedIndex].value;
+  var rate        = document.getElementById("rate").options[document.getElementById("rate").selectedIndex].value;
+  var aboutTest   = document.getElementById("aboutme").value;
+  console.log(aboutTest)
+  // console.log(date)
+
+  if (locat !== '')
+    {climbPost.climblocation = locat};
+    // climbPost.uniTimes = uniTime};
+  if (climbDate !== '')
+    {climbPost.climbdate = climbDate};
+  if (time !== '')
+    {climbPost.climbtime = time};
+  if (type !== '')
+    {climbPost.climbtype = type};
+  if (rate !== '')
+    {climbPost.climbrate = rate};
+
+
+  $.ajax({
+    url: '/user/postClimb',
+    type: 'POST',
+    dataType: 'json',
+    data: climbPost,
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function(err) {
+    console.log("error", err);
+  })
+  .always(function() {
+    console.log("complete");
+  });
+
+})
+
+
+
+
+>>>>>>> 70fbc1e6de793c0c1144dd2753fa8cbf0cbbb4cb
 $('#search').click(function(){
   $results.empty();
   let queryObject = {};
