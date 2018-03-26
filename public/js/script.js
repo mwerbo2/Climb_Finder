@@ -84,12 +84,12 @@ $('#search').click(function(){
   }
 
   $.ajax({
-    url: '/climbs/',
+    url: '/climbs/find',
     type: 'GET',
     dataType: 'json',
     data:queryObject,
     success: function(data) {
-      console.log(data)
+      console.log("front end request", data)
       let $div = $('<div class="climbs>')
       let $ul = $('<ul>')
       let $p = $('<p>')

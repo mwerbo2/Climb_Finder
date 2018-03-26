@@ -58,8 +58,8 @@ function postClimb(req, res, next){
           db.collection('users').update(
             { "email": email},
             { $set: { climblocation: req.body.climblocation,
-              climbdate: req.body.uniTimes,
-              climbday: req.body.climbdate,
+              climbdate: req.body.climbdate,
+              // climbday: req.body.climbdate,
               climbtype: req.body.climbtype,
               climbrate: req.body.climbrate
             }}

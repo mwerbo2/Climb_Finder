@@ -6,7 +6,8 @@ const MongoClient = require('mongodb').MongoClient;
 
 module.exports = {
   searchRoutes: function(req,res,next){
-    console.log(req.body)
+    console.log("reqqueryt", req.query)
+    console.log("reqquery", req.query.time)
       const filterObj = {};
       // if('location' in req.query.location){
       //   filterObj['location'] = new RegExp('^' + req.query.location, 'i')
@@ -17,16 +18,14 @@ module.exports = {
       // var t2 = req.query.unixTime;
       // console.log(t, unixTime)
       // console.log("res")
-      if("climblocation" in req.query) {
-        filterObj['climblocation'] = new RegExp(req.query.climblocation)
+      console.log(`"${t.time}"`)
+      if("climbLocation" in req.query) {
+        filterObj["climblocation"] = new RegExp(req.query.climbLocation)
       }
       if ("time" in req.query) {
-        filterObj['climbdate'] = new RegExp(req.query.unixTime)
+        filterObj["climbdate"] = t.time
       }
-
-
-
-
+console.log("filt", filterObj)
     MongoClient.connect(dbConnection, function(err,db){
       if(err) throw err;
       db.collection('users')
@@ -34,7 +33,7 @@ module.exports = {
       .toArray(function(err, results){
         if(err) throw err;
         res.filteredRoutes = results
-        console.log(results);
+        console.log("search results", results);
         next();
       })
     })
